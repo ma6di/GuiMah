@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — GuiMah Studio</title>
+<meta name="description" content="Every project from GuiMah Studio — a shipped App Store product, real-time platforms, full-stack web apps, and systems work written from scratch in C and C++.">
+
+<meta property="og:title" content="Projects — GuiMah Studio">
+<meta property="og:description" content="Everything GuiMah Studio has built — products, web apps, and low-level systems work.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2314140f'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' fill='%23f6f5f1'>G</text></svg>">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-title-key="meta.title.projects" data-desc-key="meta.desc.projects">
+
+<a href="#all" class="skip-link" data-i18n="skip">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a href="index.html#top" class="brand">GuiMah<sup>STUDIO</sup></a>
+
+  <div class="lang" role="group" aria-label="Select language" data-i18n-aria="lang.label">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+  </div>
+
+  <button class="menu-btn" aria-label="Toggle menu" data-i18n-aria="nav.menu" aria-expanded="false" aria-controls="nav-links">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+    <li><a href="projects.html" data-current data-i18n="nav.projects">Projects</a></li>
+    <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+    <li class="nav-cta"><a href="index.html#contact" class="btn" data-magnetic>
+      <span class="btn-label" data-i18n="nav.cta">Start a project</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a></li>
+  </ul>
+</header>
+
+<main>
+
+  <!-- ============ PAGE HEAD ============ -->
+  <section class="page-head wrap">
+    <p class="eyebrow" data-reveal data-i18n="pj.eyebrow">Projects</p>
+    <h1 class="display" style="margin-top: 1.25rem;">
+      <span class="line-mask"><span data-i18n="pj.l1">Everything</span></span>
+      <span class="line-mask"><span class="italic" data-i18n="pj.l2">we've built.</span></span>
+    </h1>
+    <p class="lede" data-reveal data-i18n="pj.lede" style="--delay: 400ms;">
+      The full list — client work, our own products, and the low-level systems projects
+      that taught GuiMah Studio how the machine actually behaves. One of them is live on
+      the App Store right now.
+    </p>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="section wrap" id="all">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="pj.1.eyebrow">01 — Shipped &amp; live</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="pj.1.h2">
+        Designed, built, and pushed through Apple review —
+        <span class="italic">end to end</span>.
+      </h2>
+    </div>
+
+    <article class="work" data-reveal style="display: grid; gap: 2rem;">
+      <div class="work-media glyph" style="aspect-ratio: 21 / 9;">
+        <span>Flewi</span>
+      </div>
+      <div class="story-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: start;">
+        <div>
+          <div class="work-head" style="border: none; padding: 0;">
+            <h3 style="font-size: clamp(2rem, 4vw, 3rem);">Flewi</h3>
+          </div>
+          <p class="lede" data-i18n="pj.flewi.lede" style="margin-top: 1rem;">
+            A language learning platform, live on the Apple App Store — designed,
+            developed, and launched.
+          </p>
+        </div>
+        <div style="display: grid; gap: 1.5rem;">
+          <p data-i18n="pj.flewi.body">
+            The full arc of a product in one project: mobile client, API design, relational
+            data modelling, caching, and the unglamorous last mile of App Store submission,
+            review, and release. It's public — you can download it.
+          </p>
+          <div class="tags">
+            <span class="tag">React Native</span><span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">iOS</span>
+          </div>
+          <a class="work-link" href="https://apps.apple.com/us/app/flewi/id6761818741" target="_blank" rel="noopener">
+            <span data-i18n="pj.flewi.link">View on the App Store</span><span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ WEB & PRODUCT ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="pj.2.eyebrow">02 — Web &amp; product</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="pj.2.h2">
+        Full-stack applications and front-end builds.
+      </h2>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="work" data-reveal>
+        <div class="work-media">
+          <img src="assets/img/apple.jpg" alt="Apple clone landing page" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Apple Landing Page</h3></div>
+        <p data-i18n="pj.apple">Apple's product page rebuilt — scroll-driven GSAP timelines, video sequencing, and a layout that holds together at every width.</p>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">GSAP</span><span class="tag">Tailwind CSS</span>
+        </div>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 90ms;">
+        <div class="work-media">
+          <img src="assets/img/brainwave.jpg" alt="Brainwave landing page" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Brainwave</h3></div>
+        <p data-i18n="pj.brainwave">A modern SaaS landing page with parallax depth and layered motion — the kind of marketing front-end that has to look expensive and load fast.</p>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Tailwind</span>
+        </div>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 180ms;">
+        <div class="work-media">
+          <img src="assets/img/VMP.jpg" alt="Vegan Meal Plan application" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Vegan Meal Plan</h3></div>
+        <p data-i18n="pj.vmp">Full-stack application for personalised meal planning — user accounts, recipe data, and Cloudinary-backed image handling on a Node and MongoDB core.</p>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Cloudinary</span>
+        </div>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 270ms;">
+        <div class="work-media">
+          <img src="assets/img/ironLibrary.jpg" alt="Iron Library platform" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Iron Library</h3></div>
+        <p data-i18n="pj.iron">A platform for students to publish and browse each other's projects — server-rendered with Handlebars on a Node and MongoDB stack.</p>
+        <div class="tags">
+          <span class="tag">Node.js</span><span class="tag">Handlebars</span><span class="tag">MongoDB</span>
+        </div>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 360ms;">
+        <div class="work-media glyph">
+          <span>ft_transcendence</span>
+        </div>
+        <div class="work-head"><h3>ft_transcendence</h3></div>
+        <p data-i18n="pj.ft">Real-time multiplayer platform with authentication, monitoring, observability, and scalable backend services — containerised end to end.</p>
+        <div class="tags">
+          <span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span>
+        </div>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 450ms;">
+        <div class="work-media">
+          <img src="assets/img/developerRun.jpg" alt="Developer Run browser game" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Developer Run</h3></div>
+        <p data-i18n="pj.run">A Mario-style platformer across three levels, built on the Canvas API in vanilla JavaScript — collision, sprites, and a game loop from first principles.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">Canvas API</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ SYSTEMS ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="pj.3.eyebrow">03 — Systems &amp; low-level</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="pj.3.h2">
+        The unglamorous work that makes the rest of it
+        <span class="italic">make sense</span>.
+      </h2>
+    </div>
+
+    <div class="row-list" data-stagger>
+      <article class="row" data-reveal>
+        <span class="num">01</span>
+        <h3>Webserv</h3>
+        <p data-i18n="pj.webserv">A non-blocking HTTP server in C++ supporting CGI, uploads, routing, concurrent connections, and custom configuration.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">HTTP</span><span class="tag">CGI</span><span class="tag">Sockets</span></div>
+      </article>
+
+      <article class="row" data-reveal>
+        <span class="num">02</span>
+        <h3>Minishell</h3>
+        <p data-i18n="pj.minishell">A Unix shell replicating Bash — lexing, parsing, pipes, redirections, and built-in commands, written from scratch in C.</p>
+        <div class="tags"><span class="tag">C</span><span class="tag">Unix</span><span class="tag">Parsing</span></div>
+      </article>
+
+      <article class="row" data-reveal>
+        <span class="num">03</span>
+        <h3>Cub3D</h3>
+        <p data-i18n="pj.cub3d">A Wolfenstein-inspired raycasting FPS with enemy AI, a minimap, and textured environments — rendering maths, no engine.</p>
+        <div class="tags"><span class="tag">C</span><span class="tag">Raycasting</span><span class="tag">Graphics</span></div>
+      </article>
+
+      <article class="row" data-reveal>
+        <span class="num">04</span>
+        <h3>Philosophers</h3>
+        <p data-i18n="pj.philo">The Dining Philosophers concurrency problem, solved with threads and mutexes — deadlock, starvation, and timing under pressure.</p>
+        <div class="tags"><span class="tag">C</span><span class="tag">Threads</span><span class="tag">Mutexes</span></div>
+      </article>
+    </div>
+
+    <p class="muted" data-reveal style="margin-top: 2rem; font-size: 0.875rem;" data-i18n-html="pj.systems.note">
+      Systems projects built at 42 Berlin. Source on
+      <a href="https://github.com/ma6di" target="_blank" rel="noopener" style="border-bottom: 1px solid var(--rule);">GitHub ↗</a>.
+    </p>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="wrap" style="padding-bottom: var(--section);">
+    <div class="cta" data-reveal>
+      <p class="eyebrow" data-i18n="pj.cta.eyebrow" style="color: rgba(246,245,241,0.5);">Your project next</p>
+      <h2 class="display-sm" data-i18n-html="pj.cta.h2">Want GuiMah to build <span class="italic">yours?</span></h2>
+      <p data-i18n="pj.cta.p">Tell us what you're building. We'll tell you honestly whether we're the right team for it — and if we're not, we'll say so.</p>
+      <a href="index.html#contact" class="btn" data-magnetic>
+        <span class="btn-label" data-i18n="nav.cta">Start a project</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer wrap">
+  <div class="footer-bottom" style="border: none; padding-top: 0;">
+    <span>© <span data-year>2026</span> GuiMah Studio</span>
+    <span data-i18n="foot.where">Berlin, Germany — CET</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

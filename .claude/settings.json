@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ma6di.github.io)",
+      "WebFetch(domain:guilherme-muniz.netlify.app)",
+      "Bash(curl -sL -o assets/img/mahdi.jpg \"https://github.com/ma6di.png?size=800\" -w \"mahdi: %{http_code} %{size_download}b\\\\n\")",
+      "Bash(curl -sL -o assets/img/gui.jpg \"https://github.com/GuiMazzolini.png?size=800\" -w \"gui:   %{http_code} %{size_download}b\\\\n\")",
+      "Bash(file assets/img/*.jpg)"
+    ]
+  }
+}
