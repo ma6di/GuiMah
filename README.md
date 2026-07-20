@@ -141,10 +141,10 @@ keep the `frame short` classes and leave the `<figcaption>` in place.
 
 ## Notes
 
-- **The contact form has no backend.** Submitting builds a `mailto:` link and opens the
-  visitor's mail client. Nothing is sent or stored. For real submissions, point the form
-  at Formspree, Netlify Forms, or your own endpoint.
-- Update the address in `src/js/main.js` (`hello@guimah.studio`) and the page footers if
+- **Contact form** posts to Formspree (`https://formspree.io/f/xojgdzzn`) via `fetch`.
+  The endpoint lives on the `<form action>` in `index.html`; success/error copy is handled
+  in `src/js/main.js`. Confirm your domain in the Formspree dashboard before going live.
+- Update `hello@guimah.studio` in `index.html` (and Formspree notification settings) if
   you register a different domain.
 - Animations are gated behind a `.js` class on `<html>` and respect
   `prefers-reduced-motion`. Without JS the page renders as a plain readable document.

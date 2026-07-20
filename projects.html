@@ -36,8 +36,9 @@
 
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
-    <li><a href="projects.html" data-current data-i18n="nav.projects">Projects</a></li>
+    <li><a href="index.html#work" data-i18n="nav.work">Work</a></li>
     <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+    <li><a href="projects.html" data-current data-i18n="nav.projects">Projects</a></li>
     <li class="nav-cta"><a href="index.html#contact" class="btn" data-magnetic>
       <span class="btn-label" data-i18n="nav.cta">Start a project</span>
       <span class="arrow" aria-hidden="true">→</span>
@@ -101,6 +102,36 @@
         </div>
       </div>
     </article>
+
+    <div class="work-grid" style="margin-top: 2.5rem;">
+      <article class="work" data-reveal style="--delay: 90ms;">
+        <div class="work-media work-media--shot">
+          <img src="assets/img/lawyers.png" alt="Sanches and Muniz landing page" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Sanches &amp; Muniz</h3></div>
+        <p data-i18n="pj.sanches">Live law firm website for a São Paulo practice — built for real client enquiries, not a template.</p>
+        <div class="tags">
+          <span class="tag">Web</span><span class="tag">Design</span><span class="tag">Production</span>
+        </div>
+        <a class="work-link" href="https://sanchesemuniz.com/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
+      </article>
+
+      <article class="work" data-reveal style="--delay: 180ms;">
+        <div class="work-media work-media--shot">
+          <img src="assets/img/photographer.png" alt="Rafael Hennig landing page" loading="lazy">
+        </div>
+        <div class="work-head"><h3>Rafael Hennig</h3></div>
+        <p data-i18n="pj.rafael">Live portfolio for a photographer &amp; cinematographer — gallery, video flow, and a contact experience that works.</p>
+        <div class="tags">
+          <span class="tag">Portfolio</span><span class="tag">Frontend</span><span class="tag">UX</span>
+        </div>
+        <a class="work-link" href="https://rafael-hennig.vercel.app/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
+      </article>
+    </div>
   </section>
 
   <!-- ============ WEB & PRODUCT ============ -->
@@ -115,7 +146,7 @@
     <div class="work-grid">
 
       <article class="work" data-reveal>
-        <div class="work-media">
+        <div class="work-media work-media--shot">
           <img src="assets/img/apple.jpg" alt="Apple clone landing page" loading="lazy">
         </div>
         <div class="work-head"><h3>Apple Landing Page</h3></div>
@@ -123,10 +154,13 @@
         <div class="tags">
           <span class="tag">React</span><span class="tag">GSAP</span><span class="tag">Tailwind CSS</span>
         </div>
+        <a class="work-link" href="https://appleclone3d.netlify.app/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
       </article>
 
       <article class="work" data-reveal style="--delay: 90ms;">
-        <div class="work-media">
+        <div class="work-media work-media--shot">
           <img src="assets/img/brainwave.jpg" alt="Brainwave landing page" loading="lazy">
         </div>
         <div class="work-head"><h3>Brainwave</h3></div>
@@ -134,49 +168,47 @@
         <div class="tags">
           <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Tailwind</span>
         </div>
+        <a class="work-link" href="https://site-brainwave.netlify.app/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
       </article>
 
       <article class="work" data-reveal style="--delay: 180ms;">
-        <div class="work-media">
-          <img src="assets/img/VMP.jpg" alt="Vegan Meal Plan application" loading="lazy">
+        <div class="work-media work-media--shot">
+          <img src="assets/img/mealplan.png" alt="MealPlan application" loading="lazy">
         </div>
-        <div class="work-head"><h3>Vegan Meal Plan</h3></div>
+        <div class="work-head"><h3>MealPlan</h3></div>
         <p data-i18n="pj.vmp">Full-stack application for personalised meal planning — user accounts, recipe data, and Cloudinary-backed image handling on a Node and MongoDB core.</p>
         <div class="tags">
           <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">Cloudinary</span>
         </div>
+        <a class="work-link" href="https://plan-project.netlify.app/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
       </article>
 
       <article class="work" data-reveal style="--delay: 270ms;">
-        <div class="work-media">
-          <img src="assets/img/ironLibrary.jpg" alt="Iron Library platform" loading="lazy">
+        <div class="work-media work-media--shot">
+          <img src="assets/img/gameaward.png" alt="Game Award landing page" loading="lazy">
         </div>
-        <div class="work-head"><h3>Iron Library</h3></div>
-        <p data-i18n="pj.iron">A platform for students to publish and browse each other's projects — server-rendered with Handlebars on a Node and MongoDB stack.</p>
+        <div class="work-head"><h3>Game Award</h3></div>
+        <p data-i18n="pj.gameaward">A motion-heavy landing page — scroll-driven transitions, responsive choreography, and a UI that feels premium.</p>
         <div class="tags">
-          <span class="tag">Node.js</span><span class="tag">Handlebars</span><span class="tag">MongoDB</span>
+          <span class="tag">React</span><span class="tag">GSAP</span><span class="tag">Motion</span>
         </div>
+        <a class="work-link" href="https://game-award.netlify.app/" target="_blank" rel="noopener">
+          <span data-i18n="pj.visit">Visit live</span><span aria-hidden="true">↗</span>
+        </a>
       </article>
 
       <article class="work" data-reveal style="--delay: 360ms;">
-        <div class="work-media glyph">
-          <span>ft_transcendence</span>
+        <div class="work-media work-media--shot">
+          <img src="assets/img/ecommerce.png" alt="Next.js E-Commerce landing page" loading="lazy">
         </div>
-        <div class="work-head"><h3>ft_transcendence</h3></div>
-        <p data-i18n="pj.ft">Real-time multiplayer platform with authentication, monitoring, observability, and scalable backend services — containerised end to end.</p>
+        <div class="work-head"><h3>E-commerce (Next.js)</h3></div>
+        <p data-i18n="pj.shop">In progress — an e-commerce platform built from scratch with Next.js, focused on clean UX and production-ready architecture.</p>
         <div class="tags">
-          <span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">JWT</span>
-        </div>
-      </article>
-
-      <article class="work" data-reveal style="--delay: 450ms;">
-        <div class="work-media">
-          <img src="assets/img/developerRun.jpg" alt="Developer Run browser game" loading="lazy">
-        </div>
-        <div class="work-head"><h3>Developer Run</h3></div>
-        <p data-i18n="pj.run">A Mario-style platformer across three levels, built on the Canvas API in vanilla JavaScript — collision, sprites, and a game loop from first principles.</p>
-        <div class="tags">
-          <span class="tag">JavaScript</span><span class="tag">Canvas API</span>
+          <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Commerce</span>
         </div>
       </article>
 
@@ -248,7 +280,7 @@
 <footer class="footer wrap">
   <div class="footer-bottom" style="border: none; padding-top: 0;">
     <span>© <span data-year>2026</span> GuiMah Studio</span>
-    <span data-i18n="foot.where">Berlin, Germany — CET</span>
+    <span data-i18n="foot.where">Remote · Berlin, Germany</span>
   </div>
 </footer>
 

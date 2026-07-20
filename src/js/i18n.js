@@ -13,9 +13,9 @@
 
 const de = {
   /* Meta */
-  'meta.title': 'GuiMah Studio — Entwickler-Team aus Berlin',
+  'meta.title': 'GuiMah Studio — Entwickler-Team — remote, Standort Berlin',
   'meta.desc':
-    'GuiMah Studio ist ein zweiköpfiges Entwickler-Team in Berlin. Wir bauen Web-Apps, mobile Produkte und KI-Workflows.',
+    'GuiMah Studio ist ein remote arbeitendes Entwickler-Team mit Standort Berlin. Wir bauen Web-Apps, mobile Produkte und KI-Workflows.',
   'meta.title.projects': 'Projekte — GuiMah Studio',
   'meta.desc.projects':
     'Alle Projekte von GuiMah Studio — eine veröffentlichte App-Store-Anwendung, Echtzeit-Plattformen, Web-Apps und hardwarenahe Systemprojekte in C und C++.',
@@ -31,19 +31,19 @@ const de = {
   'lang.label': 'Sprache wählen',
 
   /* Hero */
-  'hero.eyebrow': 'Berlin — Verfügbar ab Q3',
+  'hero.eyebrow': 'Remote — Standort Berlin',
   'hero.l1': 'Zwei Entwickler.',
   'hero.l2': 'Ein Team.',
   'hero.l3': 'Fertige Software.',
   'hero.lede':
-    'GuiMah Studio, das sind Guilherme und Mahdi — ein freiberufliches Entwickler-Team in Berlin für Web-Apps, mobile Produkte und KI-Workflows. Die zwei Personen im Gespräch sind die zwei Personen, die den Code schreiben.',
+    'GuiMah Studio, das sind Guilherme und Mahdi — ein freiberufliches Entwickler-Team mit Standort Berlin, remote für Web-Apps, mobile Produkte und KI-Workflows. Die zwei Personen im Gespräch sind die zwei Personen, die den Code schreiben.',
   'hero.work': 'Unsere Arbeiten',
 
   /* About */
   'about.eyebrow': '01 — Über uns',
   'about.h2':
     'Bei GuiMah entwickeln wir jedes Projekt <span class="italic">gemeinsam</span>, von Anfang bis Ende — ein Team, ein Ansprechpartner, vom ersten Gespräch bis zum Launch.',
-  'about.role': 'Entwickler — Berlin',
+  'about.role': 'Entwickler — Remote / Berlin',
   'about.gui': 'Umweltingenieur, heute Entwickler. Ausgebildet bei IronHack und TechLabs.',
   'about.mahdi': 'Bauingenieur, heute Entwickler. Informatik an der 42 Berlin.',
   'about.stack': 'Womit GuiMah arbeitet',
@@ -61,6 +61,11 @@ const de = {
     'Echtzeit-Multiplayer-Plattform mit Authentifizierung, Monitoring und skalierbaren Backend-Services.',
   'work.vmp':
     'Full-Stack-App für personalisierte Ernährungspläne, mit Bildverwaltung und Benutzerkonten.',
+  'work.visit': 'Live ansehen',
+  'work.sanches':
+    'Live-Website einer Anwaltskanzlei in São Paulo — für echte Mandantenanfragen gebaut, nicht als Template.',
+  'work.rafael':
+    'Live-Portfolio für einen Fotografen & Filmemacher — Galerie, Video-Flow und ein Kontaktbereich, der funktioniert.',
   'work.all': 'Alle Projekte',
 
   /* Services */
@@ -83,12 +88,10 @@ const de = {
   /* Contact */
   'con.eyebrow': '04 — Kontakt',
   'con.h2': 'Erzählen Sie GuiMah, was Sie <span class="italic">bauen möchten</span>.',
-  'con.avail.k': 'Verfügbarkeit',
-  'con.avail.v': 'Projekte für Q3 möglich',
   'con.email.k': 'E-Mail',
   'con.where.k': 'Standort',
-  'con.where.v': 'Berlin, Deutschland — MEZ',
-  'con.where.note': 'Remote möglich.',
+  'con.where.v': 'Berlin, Deutschland (MEZ)',
+  'con.where.note': 'Wir arbeiten remote mit Kunden in ganz Europa.',
   'con.name': 'Ihr Name',
   'con.name.ph': 'Jana Müller',
   'con.mail': 'E-Mail',
@@ -97,10 +100,10 @@ const de = {
   'con.msg.ph': 'Eine grobe Idee genügt für den Anfang.',
   'con.send': 'Anfrage senden',
   'con.note':
-    'Öffnet Ihr E-Mail-Programm mit den ausgefüllten Angaben — es wird nichts gesendet, bis Sie auf Senden klicken.',
+    'Wir melden uns innerhalb eines Werktags.',
 
   /* Footer */
-  'foot.where': 'Berlin, Deutschland — MEZ',
+  'foot.where': 'Remote · Berlin, Deutschland',
 
   /* Projects page */
   'pj.eyebrow': 'Projekte',
@@ -124,6 +127,15 @@ const de = {
     'Eine moderne SaaS-Landingpage mit Parallax-Tiefe und mehrschichtiger Animation — ein Marketing-Frontend, das teuer aussehen und schnell laden muss.',
   'pj.vmp':
     'Full-Stack-Anwendung für personalisierte Ernährungspläne — Benutzerkonten, Rezeptdaten und Bildverwaltung über Cloudinary, auf einem Kern aus Node und MongoDB.',
+  'pj.visit': 'Live ansehen',
+  'pj.sanches':
+    'Live-Website einer Anwaltskanzlei in São Paulo — für echte Mandantenanfragen gebaut, nicht als Template.',
+  'pj.rafael':
+    'Live-Portfolio für einen Fotografen & Filmemacher — Galerie, Video-Flow und ein Kontaktbereich, der funktioniert.',
+  'pj.gameaward':
+    'Eine motion-starke Landingpage — scroll-gesteuerte Übergänge, responsive Choreografie und eine UI, die sich hochwertig anfühlt.',
+  'pj.shop':
+    'In Arbeit — ein E-Commerce-Projekt von Grund auf mit Next.js, mit Fokus auf sauberes UX und produktionsreife Architektur.',
   'pj.iron':
     'Eine Plattform, auf der Studierende ihre Projekte veröffentlichen und durchsuchen — serverseitig gerendert mit Handlebars auf einem Node- und MongoDB-Stack.',
   'pj.ft':

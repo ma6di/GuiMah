@@ -79,8 +79,18 @@ import { initI18n } from './i18n.js';
   if (spyLinks.length) {
     const sections = spyLinks
       .map((link) => {
-        const el = document.querySelector(link.getAttribute('href'));
-        return el ? { link, el } : null;
+        const href = link.getAttribute('href') || '';
+        // Only spy on in-page anchors that exist in the current document.
+        // This prevents selectors like `index.html#about` (used on other pages)
+        // from interfering with nav highlighting.
+        if (!href.startsWith('#')) return null;
+
+        try {
+          const el = document.querySelector(href);
+          return el ? { link, el } : null;
+        } catch {
+          return null;
+        }
       })
       .filter(Boolean);
 
@@ -182,35 +192,72 @@ import { initI18n } from './i18n.js';
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Contact form ---------- */
+  /* ---------- Contact form (Formspree) ---------- */
   const form = document.querySelector('[data-form]');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    const endpoint = form.getAttribute('action');
+    const btn = form.querySelector('button[type="submit"]');
+    const label = btn?.querySelector('.btn-label');
+    const status = form.querySelector('[data-form-status]');
+
+    // Snapshot the idle button label so we can restore after submit (i18n may have swapped it).
+    if (label) label.dataset.idle = label.textContent;
+
+    // Keep the snapshot in sync when the language switcher runs.
+    document.querySelectorAll('[data-lang]').forEach((langBtn) => {
+      langBtn.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          if (label && !btn.disabled) label.dataset.idle = label.textContent;
+        });
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!endpoint || btn?.disabled) return;
 
-      const data = new FormData(form);
-      const lines = [
-        `Name:  ${data.get('name') || '—'}`,
-        `Email: ${data.get('email') || '—'}`,
-        '',
-        data.get('message') || '',
-      ];
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
-      // No backend on a static host — hand off to the user's mail client
-      // with everything pre-filled.
-      const subject = `Project enquiry — ${data.get('name') || 'New enquiry'}`;
-      const href =
-        `mailto:hello@guimah.studio` +
-        `?subject=${encodeURIComponent(subject)}` +
-        `&body=${encodeURIComponent(lines.join('\n'))}`;
+      const de = document.documentElement.lang === 'de';
+      const idle = label?.dataset.idle || label?.textContent || 'Send enquiry';
+      const sending = de ? 'Wird gesendet…' : 'Sending…';
+      const ok = de
+        ? 'Danke — wir melden uns innerhalb eines Werktags.'
+        : 'Thanks — we\'ll get back to you within one business day.';
+      const err = de
+        ? 'Etwas ist schiefgelaufen. Schreiben Sie uns an hello@guimah.studio.'
+        : 'Something went wrong. Email us at hello@guimah.studio.';
 
-      window.location.href = href;
+      if (label) label.textContent = sending;
+      if (btn) btn.disabled = true;
+      if (status) status.textContent = '';
 
-      const btn = form.querySelector('button[type="submit"]');
-      if (btn) {
-        const original = btn.querySelector('.btn-label').textContent;
-        btn.querySelector('.btn-label').textContent = 'Opening your mail app…';
-        setTimeout(() => { btn.querySelector('.btn-label').textContent = original; }, 3200);
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!res.ok) throw new Error(`Formspree ${res.status}`);
+
+        form.reset();
+        if (status) status.textContent = ok;
+        if (label) label.textContent = de ? 'Gesendet' : 'Sent';
+        setTimeout(() => {
+          if (label) {
+            label.textContent = label.dataset.idle || idle;
+            label.dataset.idle = label.textContent;
+          }
+          if (btn) btn.disabled = false;
+        }, 2800);
+      } catch {
+        if (status) status.textContent = err;
+        if (label) label.textContent = idle;
+        if (btn) btn.disabled = false;
       }
     });
   }
