@@ -192,13 +192,101 @@ import { initI18n } from './i18n.js';
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Contact form (Formspree) ---------- */
+  /* ---------- Contact form (Formspree) ----------
+     Note: client-side validation is UX, not security. A determined attacker
+     bypasses the browser entirely and POSTs to Formspree directly — Formspree
+     handles honeypot + spam filtering server-side. Our job here is:
+       1. Reject obvious garbage before it hits the network (empty, bad email).
+       2. Strip control chars (zero-width, RTL overrides) that let a paste hide
+          content.
+       3. Show inline errors in the visitor's language, not the browser default.
+       4. Cap length so the form can't be used as a paste-and-run channel. */
   const form = document.querySelector('[data-form]');
   if (form) {
     const endpoint = form.getAttribute('action');
     const btn = form.querySelector('button[type="submit"]');
     const label = btn?.querySelector('.btn-label');
     const status = form.querySelector('[data-form-status]');
+
+    // Localised, inline validation messages. Kept here rather than in i18n.js
+    // because they're tightly coupled to the field spec (min/maxlength).
+    const V = {
+      en: {
+        required: 'Please fill this in.',
+        short:    'A little more, please.',
+        long:     'That\'s too long — please shorten it.',
+        email:    'Please enter a valid email address.',
+      },
+      de: {
+        required: 'Bitte ausfüllen.',
+        short:    'Bitte etwas ausführlicher.',
+        long:     'Das ist zu lang — bitte kürzen.',
+        email:    'Bitte eine gültige E-Mail-Adresse eingeben.',
+      },
+    };
+    const t = () => V[document.documentElement.lang === 'de' ? 'de' : 'en'];
+
+    // Control-char / zero-width scrub. Preserves normal whitespace, kills the
+    // stuff people paste from Word or use to hide payloads (BOM, RLO, ZWSP, …).
+    const scrub = (s) =>
+      String(s)
+        .replace(/[ --]/g, '') // control
+        .replace(/[​-‏‪-‮⁠-⁯﻿]/g, '') // bidi / zero-width
+        .replace(/\r\n?/g, '\n')
+        .trim();
+
+    const showError = (name, msg) => {
+      const el = form.querySelector(`[data-error="${name}"]`);
+      if (!el) return;
+      if (msg) { el.textContent = msg; el.hidden = false; }
+      else     { el.textContent = ''; el.hidden = true; }
+    };
+
+    const validateField = (input) => {
+      const name = input.name;
+      const msg = t();
+      // scrub before measuring so pure-whitespace / zero-width payloads count as empty
+      input.value = scrub(input.value);
+      const v = input.value;
+
+      if (!v) return input.required ? msg.required : null;
+      if (input.maxLength > 0 && v.length > input.maxLength) return msg.long;
+      if (input.minLength > 0 && v.length < input.minLength) return msg.short;
+      if (input.type === 'email' && !input.checkValidity()) return msg.email;
+      return null;
+    };
+
+    // Live character counter for the message field.
+    const msg = form.querySelector('#message');
+    const count = form.querySelector('[data-count-current]');
+    if (msg && count) {
+      const tick = () => { count.textContent = String(msg.value.length); };
+      msg.addEventListener('input', tick);
+      tick();
+    }
+
+    // Blur-time validation feels less naggy than input-time.
+    form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
+      if (el.name === '_gotcha') return;
+      el.addEventListener('blur', () => showError(el.name, validateField(el)));
+      el.addEventListener('input', () => {
+        if (!el.nextElementSibling?.hidden) showError(el.name, validateField(el));
+      });
+    });
+
+    // Re-render any visible errors after a language switch — otherwise a German
+    // visitor sees English error copy until they touch the field again.
+    document.querySelectorAll('[data-lang]').forEach((langBtn) => {
+      langBtn.addEventListener('click', () => {
+        requestAnimationFrame(() => {
+          form.querySelectorAll('.field-error:not([hidden])').forEach((errEl) => {
+            const name = errEl.dataset.error;
+            const field = form.querySelector(`[name="${name}"]`);
+            if (field) showError(name, validateField(field));
+          });
+        });
+      });
+    });
 
     // Snapshot the idle button label so we can restore after submit (i18n may have swapped it).
     if (label) label.dataset.idle = label.textContent;
@@ -216,10 +304,16 @@ import { initI18n } from './i18n.js';
       e.preventDefault();
       if (!endpoint || btn?.disabled) return;
 
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+      // Validate every field ourselves, so error messages appear inline and in
+      // the visitor's language rather than as the browser's default popup.
+      let firstBad = null;
+      form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
+        if (el.name === '_gotcha') return;
+        const err = validateField(el);
+        showError(el.name, err);
+        if (err && !firstBad) firstBad = el;
+      });
+      if (firstBad) { firstBad.focus(); return; }
 
       const de = document.documentElement.lang === 'de';
       const idle = label?.dataset.idle || label?.textContent || 'Send enquiry';

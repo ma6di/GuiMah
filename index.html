@@ -28,7 +28,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2314140f'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='Georgia,serif' fill='%23f6f5f1'>G</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2314140f'/><text y='72' x='50' text-anchor='middle' font-size='62' letter-spacing='-4' font-family='Georgia,serif' fill='%23f6f5f1'>GM</text></svg>">
+<link rel="apple-touch-icon" href="/assets/img/logo-mark.svg">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body data-title-key="meta.title" data-desc-key="meta.desc">
@@ -37,7 +38,7 @@
 
 <!-- ============ NAV ============ -->
 <header class="nav">
-  <a href="#top" class="brand">GuiMah<sup>STUDIO</sup></a>
+  <a href="#top" class="brand"><span class="brand-mark" aria-hidden="true">GM</span><span class="brand-word">GuiMah<sup>STUDIO</sup></span></a>
 
   <div class="lang" role="group" aria-label="Select language" data-i18n-aria="lang.label">
     <button type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -194,11 +195,11 @@
     <div class="work-grid">
 
       <article class="work" data-reveal>
-        <div class="work-media glyph work-media--shot">
+        <a class="work-media glyph work-media--shot" href="https://apps.apple.com/us/app/flewi/id6761818741" target="_blank" rel="noopener" aria-label="Flewi — View on App Store">
           <span>Flewi</span>
-        </div>
+        </a>
         <div class="work-head">
-          <h3>Flewi</h3>
+          <h3><a href="https://apps.apple.com/us/app/flewi/id6761818741" target="_blank" rel="noopener">Flewi</a></h3>
         </div>
         <p data-i18n="work.flewi">Language learning platform — designed, built, and launched on the Apple App Store.</p>
         <div class="tags">
@@ -210,11 +211,11 @@
       </article>
 
       <article class="work" data-reveal style="--delay: 90ms;">
-        <div class="work-media work-media--shot">
+        <a class="work-media work-media--shot" href="https://sanchesemuniz.com/" target="_blank" rel="noopener" aria-label="Sanches & Muniz — Visit live site">
           <img src="assets/img/lawyers.png" alt="Sanches and Muniz landing page" loading="lazy">
-        </div>
+        </a>
         <div class="work-head">
-          <h3>Sanches &amp; Muniz</h3>
+          <h3><a href="https://sanchesemuniz.com/" target="_blank" rel="noopener">Sanches &amp; Muniz</a></h3>
         </div>
         <p data-i18n="work.sanches">Live law firm website for a São Paulo practice — built for real client enquiries, not a template.</p>
         <div class="tags">
@@ -226,11 +227,11 @@
       </article>
 
       <article class="work" data-reveal style="--delay: 180ms;">
-        <div class="work-media work-media--shot">
+        <a class="work-media work-media--shot" href="https://rafael-hennig.vercel.app/" target="_blank" rel="noopener" aria-label="Rafael Hennig — Visit live site">
           <img src="assets/img/photographer.png" alt="Rafael Hennig landing page" loading="lazy">
-        </div>
+        </a>
         <div class="work-head">
-          <h3>Rafael Hennig</h3>
+          <h3><a href="https://rafael-hennig.vercel.app/" target="_blank" rel="noopener">Rafael Hennig</a></h3>
         </div>
         <p data-i18n="work.rafael">Live portfolio for a photographer &amp; cinematographer — gallery, video flow, and a contact experience that works.</p>
         <div class="tags">
@@ -242,11 +243,11 @@
       </article>
 
       <article class="work" data-reveal style="--delay: 270ms;">
-        <div class="work-media work-media--shot">
+        <a class="work-media work-media--shot" href="https://plan-project.netlify.app/" target="_blank" rel="noopener" aria-label="MealPlan — Visit live site">
           <img src="assets/img/mealplan.png" alt="MealPlan application" loading="lazy">
-        </div>
+        </a>
         <div class="work-head">
-          <h3>MealPlan</h3>
+          <h3><a href="https://plan-project.netlify.app/" target="_blank" rel="noopener">MealPlan</a></h3>
         </div>
         <p data-i18n="work.vmp">Full-stack app for personalised meal planning, with image handling and user accounts.</p>
         <div class="tags">
@@ -346,23 +347,47 @@
       </aside>
 
       <div data-reveal style="--delay: 120ms;">
+        <!--
+          maxlength + pattern are the browser's first line of defence — they can't
+          stop a determined bot (which just POSTs directly to Formspree), but they
+          keep honest users from oversized paste and typos, and give us a spec
+          the JS validator can share. Formspree does spam/abuse filtering server-side.
+        -->
         <form data-form action="https://formspree.io/f/xojgdzzn" method="POST" novalidate>
           <div class="field">
             <label for="name" data-i18n="con.name">Your name</label>
-            <input type="text" id="name" name="name" placeholder="Jane Doe" data-i18n-ph="con.name.ph" required>
+            <input
+              type="text" id="name" name="name"
+              placeholder="Jane Doe" data-i18n-ph="con.name.ph"
+              required minlength="2" maxlength="80"
+              autocomplete="name" spellcheck="false">
+            <p class="field-error" data-error="name" aria-live="polite" hidden></p>
           </div>
 
           <div class="field">
             <label for="email" data-i18n="con.mail">Email</label>
-            <input type="email" id="email" name="email" placeholder="jane@company.com" data-i18n-ph="con.mail.ph" required>
+            <input
+              type="email" id="email" name="email"
+              placeholder="jane@company.com" data-i18n-ph="con.mail.ph"
+              required maxlength="120"
+              pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}"
+              autocomplete="email" inputmode="email" spellcheck="false">
+            <p class="field-error" data-error="email" aria-live="polite" hidden></p>
           </div>
 
           <div class="field">
             <label for="message" data-i18n="con.msg">What are you building?</label>
-            <textarea id="message" name="message" placeholder="A rough idea is enough to start." data-i18n-ph="con.msg.ph" required></textarea>
+            <textarea
+              id="message" name="message"
+              placeholder="A rough idea is enough to start." data-i18n-ph="con.msg.ph"
+              required minlength="10" maxlength="2000"></textarea>
+            <p class="field-meta">
+              <span class="field-error" data-error="message" aria-live="polite" hidden></span>
+              <span class="field-count" aria-live="off"><span data-count-current>0</span> / 2000</span>
+            </p>
           </div>
 
-          <!-- Formspree honeypot — leave empty; bots that fill it get ignored -->
+          <!-- Formspree honeypot — leave empty; bots that fill it get ignored server-side. -->
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden;">
 
           <button type="submit" class="btn" data-magnetic>

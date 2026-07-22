@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Wordmark for the nav bar. Ink square with GM monogram on the left,
+  "GuiMah" serif + "STUDIO" mono to the right — same lock-up as the
+  favicon so the whole system stays consistent.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 60"
+     role="img"
+     aria-label="GuiMah Studio">
+  <title>GuiMah Studio</title>
+
+  <!-- monogram tile -->
+  <rect x="0" y="4" width="52" height="52" rx="10" fill="#14140f"/>
+  <text x="26" y="42"
+        text-anchor="middle"
+        font-family="Instrument Serif, Iowan Old Style, Georgia, serif"
+        font-size="34"
+        letter-spacing="-2"
+        fill="#f6f5f1">GM</text>
+
+  <!-- wordmark -->
+  <text x="66" y="42"
+        font-family="Instrument Serif, Iowan Old Style, Georgia, serif"
+        font-size="34"
+        fill="#14140f"
+        letter-spacing="-0.5">GuiMah</text>
+  <text x="222" y="26"
+        font-family="JetBrains Mono, ui-monospace, SF Mono, Menlo, monospace"
+        font-size="8"
+        letter-spacing="1.5"
+        fill="#6f6f66">STUDIO</text>
+</svg>

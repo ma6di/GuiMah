@@ -162,6 +162,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
   font-family: var(--display);
   font-size: 1.5rem;
   letter-spacing: -0.01em;
@@ -175,6 +178,30 @@ button, input, textarea, select { font: inherit; color: inherit; }
   vertical-align: super;
   color: var(--ink-3);
   margin-left: 0.25rem;
+}
+
+/* Monogram tile — echoes the favicon; keeps the identity consistent across
+   browser tab, nav, and any exported asset. Sized in ems so it scales with
+   .brand rather than needing its own breakpoint tuning. */
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0.3em;
+  font-size: 0.72em;
+  font-family: var(--display);
+  letter-spacing: -0.08em;
+  padding-top: 0.05em;
+  flex-shrink: 0;
+}
+.brand-word { display: inline-block; }
+
+/* On narrow screens the tile alone carries the brand — quieter and saves room. */
+@media (max-width: 480px) {
+  .brand-word { display: none; }
 }
 
 .nav-links {
@@ -463,14 +490,18 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 .work { display: grid; gap: 1rem; }
 
+/* Media tile — when it's an <a>, it acts as the whole card's click target. */
 .work-media {
   position: relative;
   overflow: hidden;
+  display: block;
   border-radius: 3px;
   background: var(--paper-2);
   aspect-ratio: 4 / 3;
   border: 1px solid var(--rule-soft);
+  cursor: pointer;
 }
+a.work-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* Browser screenshots read better slightly wider than the default card ratio. */
 .work-media--shot {
@@ -507,6 +538,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
   padding-bottom: 0.75rem;
 }
 .work-head h3 { font-family: var(--display); font-weight: 400; font-size: 1.625rem; line-height: 1.1; }
+.work-head h3 a { color: inherit; transition: color 0.25s var(--ease); }
+.work-head h3 a:hover { color: var(--accent); }
+.work-head h3 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 .work p { font-size: 0.9375rem; color: var(--ink-3); }
 .work .tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
 
@@ -666,6 +700,35 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .field textarea { resize: vertical; min-height: 7rem; font-family: inherit; }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-4); }
+
+/* Inline error + character counter. Muted enough to stay out of the way,
+   loud enough to catch attention when the field is in an invalid state. */
+.field-error {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--clay);
+  margin: 0;
+}
+.field-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+}
+.field-count {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-4);
+  margin-left: auto;
+}
+/* Turn the input rule red when a visible error sits beneath it. */
+.field:has(.field-error:not([hidden])) input,
+.field:has(.field-error:not([hidden])) textarea {
+  border-bottom-color: var(--clay);
+}
 
 .contact-aside { display: grid; gap: 2.5rem; align-content: start; }
 .contact-block { display: grid; gap: 0.5rem; padding-top: 1.25rem; border-top: 1px solid var(--ink); }
