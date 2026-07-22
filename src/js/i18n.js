@@ -19,6 +19,12 @@ const de = {
   'meta.title.projects': 'Projekte — GuiMah Studio',
   'meta.desc.projects':
     'Alle Projekte von GuiMah Studio — eine veröffentlichte App-Store-Anwendung, Echtzeit-Plattformen, Web-Apps und hardwarenahe Systemprojekte in C und C++.',
+  'meta.title.impressum': 'Impressum — GuiMah Studio',
+  'meta.desc.impressum':
+    'Impressum von GuiMah Studio — Guilherme Mazzolini und Mahdi Cheraghali, Berlin.',
+  'meta.title.privacy': 'Datenschutz — GuiMah Studio',
+  'meta.desc.privacy':
+    'Datenschutzerklärung von GuiMah Studio — Informationen zur Verarbeitung personenbezogener Daten auf dieser Website.',
 
   /* Chrome */
   'skip': 'Zum Inhalt springen',
@@ -44,8 +50,10 @@ const de = {
   'about.h2':
     'Bei GuiMah entwickeln wir jedes Projekt <span class="italic">gemeinsam</span>, von Anfang bis Ende — ein Team, ein Ansprechpartner, vom ersten Gespräch bis zum Launch.',
   'about.role': 'Entwickler — Remote / Berlin',
-  'about.gui': 'Umweltingenieur, heute Entwickler. Ausgebildet bei IronHack und TechLabs.',
-  'about.mahdi': 'Bauingenieur, heute Entwickler. Informatik an der 42 Berlin.',
+  'about.gui':
+    'Full-Stack-Entwickler mit Hintergrund in Umweltingenieurwesen — Studium bei IronHack und TechLabs.',
+  'about.mahdi':
+    'Full-Stack-Entwickler mit Hintergrund in Bauingenieurwesen — Informatikstudium an der 42 Berlin.',
   'about.stack': 'Womit GuiMah arbeitet',
 
   /* Work */
@@ -104,6 +112,68 @@ const de = {
 
   /* Footer */
   'foot.where': 'Remote · Berlin, Deutschland',
+  'foot.impressum': 'Impressum',
+  'foot.privacy': 'Datenschutz',
+
+  /* Impressum */
+  'imp.eyebrow': 'Rechtliches',
+  'imp.h1': 'Impressum',
+  'imp.lede': 'Angaben gemäß § 5 TMG.',
+  'imp.1.h': 'Anbieter',
+  'imp.1.p':
+    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br><span class="legal-todo">[Straße und Hausnummer]</span><br><span class="legal-todo">[PLZ]</span> Berlin<br>Deutschland',
+  'imp.2.h': 'Kontakt',
+  'imp.2.p':
+    'E-Mail: <a href="mailto:hello@guimah.studio">hello@guimah.studio</a><br>Telefon: <a href="tel:+491744005625">(+49) 174 4005625</a>',
+  'imp.3.h': 'Verantwortlich für den Inhalt',
+  'imp.3.p':
+    'Guilherme Mazzolini &amp; Mahdi Cheraghali<br>Anschrift wie oben',
+  'imp.4.h': 'Umsatzsteuer-ID',
+  'imp.4.p':
+    'Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br><span class="legal-todo">[USt-IdNr., falls vorhanden — sonst diesen Abschnitt entfernen]</span>',
+  'imp.5.h': 'EU-Streitschlichtung',
+  'imp.5.p':
+    'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+  'imp.6.h': 'Haftung für Inhalte',
+  'imp.6.p':
+    'Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.',
+  'imp.7.h': 'Haftung für Links',
+  'imp.7.p':
+    'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.',
+  'imp.note':
+    'Bitte ersetzen Sie die hervorgehobenen Adress-Platzhalter vor der Veröffentlichung durch Ihre echte Berliner Straßenadresse. Siehe auch unsere <a href="datenschutz.html">Datenschutzerklärung</a>.',
+
+  /* Privacy / Datenschutz */
+  'priv.eyebrow': 'Rechtliches',
+  'priv.h1': 'Datenschutzerklärung',
+  'priv.lede':
+    'Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website (Art. 13 DSGVO).',
+  'priv.1.h': '1. Verantwortlicher',
+  'priv.1.p':
+    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br><span class="legal-todo">[Straße und Hausnummer]</span><br><span class="legal-todo">[PLZ]</span> Berlin, Deutschland<br>E-Mail: <a href="mailto:hello@guimah.studio">hello@guimah.studio</a><br>Telefon: <a href="tel:+491744005625">(+49) 174 4005625</a>',
+  'priv.2.h': '2. Hosting',
+  'priv.2.p':
+    'Diese Website wird bei einem Hosting-Anbieter betrieben. Beim Aufruf der Seite verarbeitet der Anbieter automatisch Server-Logdaten (z. B. IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp), die technisch zur Auslieferung der Website erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und funktionsfähigen Website).',
+  'priv.3.h': '3. Kontaktformular',
+  'priv.3.p':
+    'Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Nachricht), um Ihre Anfrage zu bearbeiten. Das Formular wird über <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> (Formspree, Inc.) übermittelt, das als Auftragsverarbeiter die Nachricht an uns zustellt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) und/oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Anfragedaten speichern wir nur so lange, wie es zur Bearbeitung erforderlich ist, sofern keine längere gesetzliche Aufbewahrungspflicht besteht.',
+  'priv.4.h': '4. Schriftarten',
+  'priv.4.p':
+    'Diese Website lädt Schriftarten von Google Fonts (Google Ireland Limited). Beim Abruf der Schriftarten kann Ihr Browser eine Verbindung zu Google-Servern herstellen; dabei kann Ihre IP-Adresse verarbeitet werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen Darstellung). Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a>.',
+  'priv.5.h': '5. Sprachauswahl',
+  'priv.5.p':
+    'Wir speichern Ihre Sprachauswahl (EN/DE) im Local Storage Ihres Browsers, damit die Einstellung über Besuche hinweg erhalten bleibt. Diese Daten verbleiben auf Ihrem Gerät und werden nicht an uns übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer nutzbaren zweisprachigen Oberfläche).',
+  'priv.6.h': '6. Cookies &amp; Analyse',
+  'priv.6.p':
+    'Wir verwenden auf dieser Website keine Werbe-Cookies und keine Analyse-Tools (wie Google Analytics).',
+  'priv.7.h': '7. Ihre Rechte',
+  'priv.7.p':
+    'Nach der DSGVO haben Sie das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen eine Verarbeitung auf Grundlage berechtigter Interessen. Außerdem haben Sie das Recht, sich bei einer Aufsichtsbehörde zu beschweren — in Berlin z. B. bei der <a href="https://www.datenschutz-berlin.de/" target="_blank" rel="noopener">Berliner Beauftragten für Datenschutz und Informationsfreiheit</a>. Zur Ausübung Ihrer Rechte schreiben Sie uns an <a href="mailto:hello@guimah.studio">hello@guimah.studio</a>.',
+  'priv.8.h': '8. Aktualisierungen',
+  'priv.8.p':
+    'Wir können diese Datenschutzerklärung anpassen, wenn sich unsere Website oder rechtliche Anforderungen ändern. Die aktuelle Fassung ist stets auf dieser Seite verfügbar.',
+  'priv.note':
+    'Bitte ersetzen Sie die Adress-Platzhalter vor der Veröffentlichung durch dieselbe Straßenadresse wie im <a href="impressum.html">Impressum</a>.',
 
   /* Projects page */
   'pj.eyebrow': 'Projekte',

@@ -15,11 +15,13 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      // Both pages need an entry — Vite is single-page by default and would
-      // otherwise build index.html only and silently drop projects.html.
+      // Each HTML page needs an entry — Vite is single-page by default and would
+      // otherwise build only the first input and silently drop the rest.
       input: {
         main: resolve(__dirname, 'index.html'),
         projects: resolve(__dirname, 'projects.html'),
+        impressum: resolve(__dirname, 'impressum.html'),
+        datenschutz: resolve(__dirname, 'datenschutz.html'),
       },
     },
   },

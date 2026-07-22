@@ -99,7 +99,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .display {
   font-family: var(--display);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   font-size: clamp(2.75rem, 8.5vw, 7rem);
 }
@@ -113,7 +113,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .display-sm {
   font-family: var(--display);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: 1.12;
   letter-spacing: -0.015em;
   font-size: clamp(2rem, 4.6vw, 3.5rem);
 }
@@ -307,8 +307,14 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 /* Masked line-by-line headline reveal.
    Only primed when JS is running — otherwise the headline would stay
-   translated out of its mask forever and the page would render headless. */
-.line-mask { overflow: hidden; display: block; }
+   translated out of its mask forever and the page would render headless.
+   Extra bottom padding keeps descenders (g, y, p) visible inside overflow:hidden. */
+.line-mask {
+  overflow: hidden;
+  display: block;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.08em;
+}
 .line-mask > span { display: block; }
 .js .line-mask > span {
   transform: translateY(105%);
@@ -349,10 +355,9 @@ button, input, textarea, select { font: inherit; color: inherit; }
   overflow: hidden;
   background: var(--paper-2);
   border-radius: 2px;
+  aspect-ratio: 3 / 4;
 }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
-.frame.tall  { aspect-ratio: 3 / 4.2; }
-.frame.short { aspect-ratio: 3 / 3.4; transform: translateY(2rem); }
 
 .frame figcaption {
   position: absolute;
@@ -682,6 +687,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .footer-bottom {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
   padding-top: 1.75rem;
@@ -691,6 +697,61 @@ button, input, textarea, select { font: inherit; color: inherit; }
   letter-spacing: 0.06em;
   color: var(--ink-4);
   text-transform: uppercase;
+}
+.footer-links {
+  display: inline-flex;
+  gap: 1.25rem;
+}
+.footer-links a {
+  color: var(--ink-3);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.footer-links a:hover,
+.footer-links a[data-current] {
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+/* ---------- Legal pages ---------- */
+.legal {
+  max-width: 46rem;
+  display: grid;
+  gap: clamp(2rem, 4vw, 2.75rem);
+  padding-top: 0;
+}
+.legal-block h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.legal-block p {
+  color: var(--ink-2);
+  font-size: 0.9875rem;
+  line-height: 1.7;
+}
+.legal-block a {
+  border-bottom: 1px solid var(--rule);
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+.legal-block a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.legal-todo {
+  background: rgba(180, 100, 60, 0.12);
+  color: var(--clay);
+  padding: 0.05em 0.3em;
+  border-radius: 2px;
+}
+.legal-note {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+.legal-note a {
+  border-bottom: 1px solid var(--rule);
 }
 
 /* ---------- Mobile menu ---------- */
@@ -776,7 +837,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
   .people, .work-grid { grid-template-columns: 1fr; }
   .work-grid .work:nth-child(n) { margin-top: 0; }
-  .frame.short { transform: none; }
   .hero { min-height: auto; padding-top: 8rem; }
 }
 
