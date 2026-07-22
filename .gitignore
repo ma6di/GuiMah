@@ -3,3 +3,8 @@ dist
 .DS_Store
 *.local
 .vite
+
+# Env — .env.example is checked in as the template
+.env
+.env.*
+!.env.example

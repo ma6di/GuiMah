@@ -1,0 +1,56 @@
+# =============================================================================
+# GuiMah Studio — Caddy config
+#
+# Caddy auto-provisions HTTPS via Let's Encrypt as soon as this Caddyfile
+# resolves a public hostname on ports 80/443. For local dev use `localhost` —
+# Caddy trusts its own internal CA and no ACME calls happen.
+#
+# When you deploy, set SITE_ADDRESS in the environment to your real domain
+# (e.g. `SITE_ADDRESS=guimah.studio`). Nothing else needs to change.
+# =============================================================================
+
+{
+	# Uncomment on first prod deploy to see ACME progress in the container log.
+	# debug
+
+	# Real email so Let's Encrypt can warn about expiring accounts.
+	email hello@guimah.studio
+}
+
+{$SITE_ADDRESS:localhost} {
+	root * /srv
+	encode zstd gzip
+
+	# --- security headers -----------------------------------------------------
+	# Applied to every response, not just the HTML — CSS/JS/images benefit too.
+	header {
+		# Force HTTPS for a year across all subdomains.
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		# We don't use any browser features that need explicit permission.
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+		# CSP: allow Google Fonts (stylesheet + font file), Formspree POST target,
+		# and images from same-origin + data URIs (favicon is inlined).
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
+		# The nginx-style server signature isn't useful and gives free recon.
+		-Server
+	}
+
+	# --- caching --------------------------------------------------------------
+	# Vite's asset filenames look like main-CRd0yK-N.css — hyphens, underscores
+	# and mixed case are all in the hash, so match on the /assets/ prefix
+	# rather than trying to spot hex-only fingerprints.
+	@hashed path /assets/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	# HTML must revalidate — that's how new deploys reach visitors.
+	@html path *.html /
+	header @html Cache-Control "no-cache, must-revalidate"
+
+	# --- routing --------------------------------------------------------------
+	# Static site — no client routing, so an unknown path should 404 rather
+	# than silently serve index.html (which would break analytics + SEO).
+	file_server
+}

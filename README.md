@@ -30,6 +30,38 @@ npm run preview  # serve the built site locally to check it before deploying
 `base: './'` in `vite.config.js` keeps asset paths relative, so the build also works
 from a subpath like `user.github.io/repo` rather than only at a domain root.
 
+### Self-host with Docker + Caddy (HTTPS)
+
+For a VPS deploy on your own domain, everything you need is here:
+
+```bash
+cp .env.example .env             # set SITE_ADDRESS=guimah.studio
+docker compose up -d --build
+```
+
+- **Two-stage image** — Node 20 builds the site, then Caddy 2 (Alpine) serves the
+  `dist/`. Runtime image is ~95 MB and carries no Node.
+- **Automatic HTTPS** — Caddy provisions a Let's Encrypt cert the first time the
+  container comes up with a public hostname pointing at it. The `caddy_data` volume
+  persists the account key + certs across restarts — **don't skip it**, or you'll hit
+  the ACME rate limit on redeploys (5 duplicate certs per week).
+- **Security headers** — HSTS (1 year + preload), CSP scoped to Google Fonts +
+  Formspree, X-Frame-Options, Referrer-Policy, Permissions-Policy, X-Content-Type-Options.
+  All configured in `Caddyfile`.
+- **Caching** — `/assets/*` (Vite's hashed bundles) cached one year immutable;
+  HTML always revalidates so new deploys reach visitors immediately.
+- **HTTP/3** — port 443/UDP is exposed in `docker-compose.yml`.
+
+Local dev-only run with a self-signed cert (Caddy's internal CA):
+
+```bash
+docker compose up --build     # SITE_ADDRESS defaults to localhost
+# https://localhost/  — browser will warn once, then trust it
+```
+
+Update `hello@guimah.studio` in `Caddyfile` if you switch the domain — Let's Encrypt
+uses that address to warn about expiring accounts.
+
 ## Structure
 
 ```
@@ -60,6 +92,34 @@ you've shipped, and how to make contact.
 
 If you add a section, consider what comes out. Depth belongs on `projects.html` or
 behind the portfolio links — not on the landing page.
+
+### Brand mark
+
+Two SVGs in `public/assets/img/` — reuse anywhere you need the logo outside the site:
+
+- `logo-mark.svg` — the standalone monogram tile (favicon, app icon, avatars).
+- `logo-wordmark.svg` — tile + wordmark, for headers, decks, and email signatures.
+
+The `.brand-mark` in the nav (`<span class="brand-mark">GM</span>`) is CSS-only — it
+avoids an extra network round-trip and stays crisp on retina. The favicon is inlined
+as a data URI in each page's `<head>`, so there's no separate .ico to keep in sync.
+
+### Form input guards
+
+The contact form's client-side validation is **UX, not security** — a determined
+attacker skips the form entirely and POSTs to Formspree. What we do handle here:
+
+- `maxlength` + `pattern` on inputs — the browser blocks over-typing and rejects
+  malformed emails without JS.
+- Character counter on the message field.
+- Blur-time validation with inline errors, localised for EN/DE.
+- **Zero-width and bidi override scrubbing** — pastes containing `​` (ZWSP),
+  `‮` (RLO), etc. get cleaned before submit, so no one can hide payloads inside a
+  visible name.
+- Submit-time re-validation catches JS-set values that bypass `maxlength`.
+
+The heavy lifting lives at Formspree's end — spam filtering, honeypot, reCAPTCHA —
+and the `_gotcha` honeypot field is still in the HTML for their bot detector.
 
 ### German UI
 

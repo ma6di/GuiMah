@@ -1,0 +1,36 @@
+# =============================================================================
+# GuiMah Studio — production compose file
+#
+# Usage:
+#   cp .env.example .env         # then set SITE_ADDRESS
+#   docker compose up -d --build
+#
+# The two named volumes below are critical: without them, every restart wipes
+# Caddy's Let's Encrypt account and forces re-issuance, which hits the ACME
+# rate limit (5 duplicate certs per week).
+# =============================================================================
+
+services:
+  site:
+    build: .
+    image: guimah-site:latest
+    container_name: guimah-site
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"        # HTTP/3
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
+    volumes:
+      - caddy_data:/data      # Let's Encrypt account + issued certs
+      - caddy_config:/config  # Caddy's managed state
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  caddy_data:
+  caddy_config:
