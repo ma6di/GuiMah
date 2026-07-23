@@ -18,7 +18,7 @@ const de = {
     'GuiMah Studio ist ein remote arbeitendes Entwickler-Team mit Standort Berlin. Wir bauen Web-Apps, mobile Produkte und KI-Workflows.',
   'meta.title.projects': 'Projekte — GuiMah Studio',
   'meta.desc.projects':
-    'Alle Projekte von GuiMah Studio — eine veröffentlichte App-Store-Anwendung, Echtzeit-Plattformen, Web-Apps und hardwarenahe Systemprojekte in C und C++.',
+    'Alle Projekte von GuiMah Studio — eine veröffentlichte App-Store-Anwendung, Kunden-Websites und Full-Stack-Webanwendungen.',
   'meta.title.impressum': 'Impressum — GuiMah Studio',
   'meta.desc.impressum':
     'Impressum von GuiMah Studio — Guilherme Mazzolini und Mahdi Cheraghali, Berlin.',
@@ -180,7 +180,7 @@ const de = {
   'pj.l1': 'Alles, was wir',
   'pj.l2': 'gebaut haben.',
   'pj.lede':
-    'Die vollständige Liste — Kundenprojekte, eigene Produkte und die hardwarenahen Systemprojekte, an denen GuiMah Studio gelernt hat, wie die Maschine wirklich arbeitet. Eines davon ist gerade live im App Store.',
+    'Die vollständige Liste — Kundenarbeiten, eigene Produkte und die Projekte, die wir von Anfang bis Ende umgesetzt haben. Eines davon ist gerade live im App Store.',
   'pj.1.eyebrow': '01 — Veröffentlicht & live',
   'pj.1.h2':
     'Entworfen, entwickelt und durch das Apple-Review gebracht — <span class="italic">von Anfang bis Ende</span>.',
@@ -212,19 +212,6 @@ const de = {
     'Echtzeit-Multiplayer-Plattform mit Authentifizierung, Monitoring, Observability und skalierbaren Backend-Services — durchgehend containerisiert.',
   'pj.run':
     'Ein Jump-’n’-Run im Mario-Stil über drei Level, gebaut mit der Canvas-API in reinem JavaScript — Kollision, Sprites und Game-Loop von Grund auf.',
-  'pj.3.eyebrow': '03 — Systeme & Hardwarenahes',
-  'pj.3.h2':
-    'Die unspektakuläre Arbeit, die den Rest erst <span class="italic">verständlich macht</span>.',
-  'pj.webserv':
-    'Ein nicht-blockierender HTTP-Server in C++ mit CGI, Uploads, Routing, parallelen Verbindungen und eigener Konfiguration.',
-  'pj.minishell':
-    'Eine Unix-Shell nach dem Vorbild von Bash — Lexing, Parsing, Pipes, Umleitungen und eingebaute Befehle, komplett in C geschrieben.',
-  'pj.cub3d':
-    'Ein von Wolfenstein inspirierter Raycasting-Shooter mit Gegner-KI, Minimap und texturierten Umgebungen — Rendering-Mathematik, keine Engine.',
-  'pj.philo':
-    'Das Philosophenproblem der Nebenläufigkeit, gelöst mit Threads und Mutexes — Deadlock, Starvation und Timing unter Last.',
-  'pj.systems.note':
-    'Systemprojekte, entstanden an der 42 Berlin. Quellcode auf <a href="https://github.com/ma6di" target="_blank" rel="noopener" style="border-bottom: 1px solid var(--rule);">GitHub ↗</a>.',
   'pj.cta.eyebrow': 'Ihr Projekt als Nächstes',
   'pj.cta.h2': 'Soll GuiMah <span class="italic">Ihres</span> bauen?',
   'pj.cta.p':
