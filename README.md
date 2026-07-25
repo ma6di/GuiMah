@@ -45,9 +45,9 @@ docker compose up -d --build
   container comes up with a public hostname pointing at it. The `caddy_data` volume
   persists the account key + certs across restarts — **don't skip it**, or you'll hit
   the ACME rate limit on redeploys (5 duplicate certs per week).
-- **Security headers** — HSTS (1 year + preload), CSP scoped to Google Fonts +
+- **Security headers** — HSTS (1 year + preload), CSP scoped to same-origin +
   Formspree, X-Frame-Options, Referrer-Policy, Permissions-Policy, X-Content-Type-Options.
-  All configured in `Caddyfile`.
+  Fonts are self-hosted (no Google Fonts). All configured in `Caddyfile`.
 - **Caching** — `/assets/*` (Vite's hashed bundles) cached one year immutable;
   HTML always revalidates so new deploys reach visitors immediately.
 - **HTTP/3** — port 443/UDP is exposed in `docker-compose.yml`.

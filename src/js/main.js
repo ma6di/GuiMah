@@ -4,6 +4,20 @@
    and all of it yields to prefers-reduced-motion.
    ========================================================================== */
 
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/instrument-serif/latin-ext-400.css';
+import '@fontsource/instrument-serif/latin-400-italic.css';
+import '@fontsource/instrument-serif/latin-ext-400-italic.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-ext-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/inter/latin-ext-500.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-ext-600.css';
+import '@fontsource/jetbrains-mono/latin-400.css';
+import '@fontsource/jetbrains-mono/latin-ext-400.css';
+import '@fontsource/jetbrains-mono/latin-500.css';
+import '@fontsource/jetbrains-mono/latin-ext-500.css';
 import '../css/style.css';
 import { initI18n } from './i18n.js';
 
