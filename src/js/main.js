@@ -20,6 +20,7 @@ import '@fontsource/jetbrains-mono/latin-500.css';
 import '@fontsource/jetbrains-mono/latin-ext-500.css';
 import '../css/style.css';
 import { initI18n } from './i18n.js';
+import { initChat } from './chatbot.js';
 
 (() => {
   'use strict';
@@ -27,6 +28,10 @@ import { initI18n } from './i18n.js';
   // Before anything measures or animates, so the page never flashes English
   // at a German visitor.
   initI18n();
+
+  // Mounts its own markup, so no page needs chat HTML. Runs after i18n so the
+  // widget reads the language the visitor actually ended up with.
+  initChat();
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
