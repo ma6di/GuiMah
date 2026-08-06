@@ -826,6 +826,173 @@ a.work-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
   border-bottom: 1px solid var(--rule);
 }
 
+/* ---------- Case study (flewi.html) ----------
+   A long-form page, so the components here are all read-first: quiet borders,
+   prose measures capped near 68ch, and no motion that isn't already shared
+   with the rest of the site. */
+.cs-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule);
+}
+.cs-fact { display: grid; gap: 0.4rem; align-content: start; }
+.cs-fact .k {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.cs-fact .v { font-size: 0.9375rem; color: var(--ink-2); }
+
+.cs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+/* Product strip. The source image is a wide multi-screen composite, so the
+   tile takes the image's own ratio instead of cropping it. */
+.cs-shot {
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.cs-shot img { width: 100%; height: auto; }
+
+.cs-prose { display: grid; gap: 1.25rem; max-width: 68ch; }
+.cs-prose p { font-size: 1.0625rem; line-height: 1.7; color: var(--ink-2); }
+
+/* Card list — the competitor teardown and the design decisions. */
+.cs-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+.cs-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: grid;
+  gap: 0.625rem;
+  align-content: start;
+  transition: transform 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+.cs-card:hover { transform: translateY(-3px); border-color: var(--ink-4); }
+.cs-card h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.15;
+}
+.cs-card p { font-size: 0.9375rem; color: var(--ink-3); }
+
+/* The gap in the market, and the through-line at the end — deliberately
+   louder than a card, because both are the point of their section. */
+.cs-callout {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 3px 3px 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: grid;
+  gap: 0.625rem;
+}
+.cs-callout .k {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cs-callout p { color: var(--ink-2); max-width: 64ch; font-size: 1rem; line-height: 1.65; }
+
+/* Architecture rows — label left, detail right. */
+.cs-spec { display: grid; border-top: 1px solid var(--rule); }
+.cs-spec-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr);
+  gap: clamp(0.75rem, 3vw, 3rem);
+  align-items: baseline;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.cs-spec-row .k {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.cs-spec-row p { font-size: 0.9375rem; color: var(--ink-2); }
+
+/* Numbered change list for the in-flight work. */
+.cs-steps { display: grid; border-top: 1px solid var(--rule); counter-reset: step; }
+.cs-step {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: clamp(0.75rem, 3vw, 2rem);
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--rule);
+}
+.cs-step::before {
+  counter-increment: step;
+  content: counter(step, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  padding-top: 0.45rem;
+}
+.cs-step-body { display: grid; gap: 0.625rem; }
+.cs-step h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+}
+.cs-step p { font-size: 0.9375rem; color: var(--ink-2); }
+.cs-why { color: var(--ink-3); }
+.cs-why .k {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+/* Pivot banner — old name to new name, stated once and plainly. */
+.cs-pivot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+.cs-pivot .now {
+  color: var(--ink);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+@media (max-width: 640px) {
+  .cs-spec-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .cs-step { grid-template-columns: 1fr; }
+  .cs-step::before { padding-top: 0; }
+}
+
 /* ---------- Mobile menu ---------- */
 .menu-btn {
   display: none;

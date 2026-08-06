@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flewi — Case Study — GuiMah Studio</title>
+<meta name="description" content="Flewi case study — how GuiMah Studio shipped a live spaced-repetition flashcard platform, starting from a sharp German wedge and growing into Spaces, Smart Add, and multi-subject learning.">
+
+<meta property="og:site_name" content="GuiMah Studio">
+<meta property="og:title" content="Flewi — Case Study — GuiMah Studio">
+<meta property="og:description" content="A live flashcard platform with a serious SRS — how Flewi was scoped, built, and opened from German into a general learning product.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://guimah.studio/flewi.html">
+<meta property="og:image" content="https://guimah.studio/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Flewi — a spaced-repetition flashcard platform by GuiMah Studio">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flewi — Case Study — GuiMah Studio">
+<meta name="twitter:description" content="A live flashcard platform with a serious SRS — how Flewi was scoped, built, and opened from German into a general learning product.">
+<meta name="twitter:image" content="https://guimah.studio/assets/img/og.png">
+<meta name="twitter:image:alt" content="Flewi — a spaced-repetition flashcard platform by GuiMah Studio">
+
+<link rel="canonical" href="https://guimah.studio/flewi.html">
+
+<link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/logo-mark.svg">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-title-key="meta.title.flewi" data-desc-key="meta.desc.flewi">
+
+<a href="#why" class="skip-link" data-i18n="skip">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a href="index.html#top" class="brand"><span class="brand-mark" aria-hidden="true">GM</span><span class="brand-word">GuiMah<sup>STUDIO</sup></span></a>
+
+  <div class="lang" role="group" aria-label="Select language" data-i18n-aria="lang.label">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+  </div>
+
+  <button class="menu-btn" aria-label="Toggle menu" data-i18n-aria="nav.menu" aria-expanded="false" aria-controls="nav-links">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+    <li><a href="index.html#work" data-i18n="nav.work">Work</a></li>
+    <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+    <li><a href="projects.html" data-current data-i18n="nav.projects">Projects</a></li>
+    <li class="nav-cta"><a href="index.html#contact" class="btn" data-magnetic>
+      <span class="btn-label" data-i18n="nav.cta">Start a project</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a></li>
+  </ul>
+</header>
+
+<main>
+
+  <!-- ============ PAGE HEAD ============ -->
+  <section class="page-head wrap">
+    <p class="eyebrow" data-reveal data-i18n="cs.eyebrow">Case study — Flewi</p>
+    <h1 class="display" style="margin-top: 1.25rem;">
+      <span class="line-mask"><span>Flewi</span></span>
+      <span class="line-mask"><span class="italic" data-i18n="cs.l2">Flashcards that stick.</span></span>
+    </h1>
+    <p class="lede" data-reveal data-i18n="cs.lede" style="--delay: 400ms;">
+      A live spaced-repetition platform — Spaces, Smart Add, a real SRS engine —
+      on iOS, Android and the web. It started by fixing the hardest part of
+      German. It now opens to every language and every subject.
+    </p>
+
+    <div class="cs-facts" data-reveal style="--delay: 480ms;">
+      <div class="cs-fact">
+        <span class="k" data-i18n="cs.fact.role.k">Our role</span>
+        <span class="v" data-i18n="cs.fact.role.v">Product, design, mobile, API, infrastructure</span>
+      </div>
+      <div class="cs-fact">
+        <span class="k" data-i18n="cs.fact.status.k">Status</span>
+        <span class="v" data-i18n="cs.fact.status.v">Live — App Store &amp; flewi.app</span>
+      </div>
+      <div class="cs-fact">
+        <span class="k" data-i18n="cs.fact.platform.k">Platforms</span>
+        <span class="v" data-i18n="cs.fact.platform.v">iOS &amp; Android (Expo), installable web PWA</span>
+      </div>
+      <div class="cs-fact">
+        <span class="k" data-i18n="cs.fact.now.k">In flight</span>
+        <span class="v" data-i18n="cs.fact.now.v">Web parity · Flashcard Master</span>
+      </div>
+    </div>
+
+    <div class="cs-actions" data-reveal style="--delay: 560ms;">
+      <a class="btn" href="https://apps.apple.com/us/app/flewi/id6761818741" target="_blank" rel="noopener" data-magnetic>
+        <span class="btn-label" data-i18n="cs.appstore">View on the App Store</span>
+        <span class="arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="work-link" href="https://flewi.app" target="_blank" rel="noopener">
+        <span data-i18n="cs.live">Open flewi.app</span><span aria-hidden="true">↗</span>
+      </a>
+      <a class="work-link" href="projects.html">
+        <span aria-hidden="true">←</span><span data-i18n="cs.back">All projects</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT STRIP ============ -->
+  <section class="wrap" style="padding-top: clamp(2rem, 5vw, 3.5rem);">
+    <div class="cs-shot" data-reveal>
+      <img src="assets/img/flewi.jpg" alt="Flewi app screens — Spaces, flashcards, Smart Add, progress, and study modes" width="2400" height="741">
+    </div>
+  </section>
+
+  <!-- ============ 01 — WHY ============ -->
+  <section class="section wrap" id="why">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="cs.1.eyebrow">01 — Why it was built</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="cs.1.h2">
+        Start with one sharp pain. <span class="italic">Ship the platform around it.</span>
+      </h2>
+    </div>
+
+    <div class="cs-prose" data-reveal>
+      <p data-i18n="cs.1.p1">
+        German noun gender and irregular plurals are where most learners stall —
+        three articles, almost no reliable rules, and tools that either dump raw
+        cards on you or gamify the grammar away. That pain was the wedge.
+      </p>
+      <p data-i18n="cs.1.p2">
+        Flewi was built as a real product around it: a custom spaced-repetition
+        engine, Artikel practice, auto-parsed cards, decks, streaks and native
+        apps. The same foundations now power Spaces, Smart Add and general
+        flashcards — so the live product is already broader than the problem it
+        started with.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 02 — MARKET ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="cs.2.eyebrow">02 — Market research</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="cs.2.h2">
+        Three big tools. <span class="italic">One gap</span> between them.
+      </h2>
+    </div>
+
+    <div class="cs-cards">
+      <article class="cs-card" data-reveal>
+        <h3>Anki</h3>
+        <p data-i18n="cs.2.anki">
+          Serious spaced repetition, brutal UX, no language intelligence.
+          You build every card by hand.
+        </p>
+      </article>
+      <article class="cs-card" data-reveal style="--delay: 90ms;">
+        <h3>Duolingo</h3>
+        <p data-i18n="cs.2.duo">
+          Great retention loops, shallow depth — weak dictionary, no real
+          user-owned decks, thin on grammar tables.
+        </p>
+      </article>
+      <article class="cs-card" data-reveal style="--delay: 180ms;">
+        <h3>Quizlet</h3>
+        <p data-i18n="cs.2.quizlet">
+          Easy sharing, generic cards — no auto-parsed grammar, articles or
+          conjugations.
+        </p>
+      </article>
+    </div>
+
+    <div class="cs-callout" data-reveal>
+      <span class="k" data-i18n="cs.2.gap.k">The gap</span>
+      <p data-i18n="cs.2.gap.p">
+        Nothing combined dictionary-grade auto-parsing — article, plural,
+        conjugation, examples, pronunciation — with a serious SRS and a
+        native-feeling UI. Flewi sits in that middle: Anki depth without Anki
+        friction, for motivated self-learners.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ 03 — DESIGN DECISIONS ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="cs.3.eyebrow">03 — Design decisions</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="cs.3.h2">
+        Three calls that shaped <span class="italic">the whole product</span>.
+      </h2>
+    </div>
+
+    <div class="cs-cards">
+      <article class="cs-card" data-reveal>
+        <h3 data-i18n="cs.3.a.h">One card model, three ways in</h3>
+        <p data-i18n="cs.3.a.p">
+          Smart Add, Manual Builder and Freestyle all land on the same idea:
+          a card is a title plus ordered fields. That model is what lets Flewi
+          stretch from German grammar tables to any subject.
+        </p>
+      </article>
+      <article class="cs-card" data-reveal style="--delay: 90ms;">
+        <h3 data-i18n="cs.3.b.h">Auto-parsed, then user-owned</h3>
+        <p data-i18n="cs.3.b.p">
+          Search a word and get article, plural, conjugation, example and TTS
+          generated for you — then pick which pieces become card fields. Depth
+          without forcing a fixed template.
+        </p>
+      </article>
+      <article class="cs-card" data-reveal style="--delay: 180ms;">
+        <h3 data-i18n="cs.3.c.h">Native where it matters</h3>
+        <p data-i18n="cs.3.c.p">
+          Ship a gesture-driven PWA first, then back it with real iOS and Android
+          builds. Mobile is now the product source of truth; web is catching up
+          to full parity.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 04 — ARCHITECTURE ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="cs.4.eyebrow">04 — Architecture &amp; stack</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="cs.4.h2">
+        Self-hosted, containerised, <span class="italic">boring on purpose</span>.
+      </h2>
+    </div>
+
+    <div class="cs-spec" data-reveal>
+      <div class="cs-spec-row">
+        <span class="k" data-i18n="cs.4.fe.k">Frontend</span>
+        <p data-i18n="cs.4.fe.v">
+          React (Vite) and Tailwind, with custom gesture and animation logic,
+          shipped as a PWA — service workers and web manifest.
+        </p>
+      </div>
+      <div class="cs-spec-row">
+        <span class="k" data-i18n="cs.4.mob.k">Mobile</span>
+        <p data-i18n="cs.4.mob.v">
+          Expo / React Native — the source of truth for product UX as of v2.0,
+          including Spaces, Quest and the modular card system.
+        </p>
+      </div>
+      <div class="cs-spec-row">
+        <span class="k" data-i18n="cs.4.be.k">Backend</span>
+        <p data-i18n="cs.4.be.v">
+          FastAPI (async Python) with SQLAlchemy and Alembic, PostgreSQL for
+          relational data, Redis for cache, sessions and ephemeral state.
+        </p>
+      </div>
+      <div class="cs-spec-row">
+        <span class="k" data-i18n="cs.4.infra.k">Infrastructure</span>
+        <p data-i18n="cs.4.infra.v">
+          Fully Dockerised services — frontend, API, database, cache, proxy —
+          behind a Caddy reverse proxy with automatic TLS, self-hosted on
+          Hetzner with zero-downtime deploys.
+        </p>
+      </div>
+      <div class="cs-spec-row">
+        <span class="k" data-i18n="cs.4.order.k">Key decision</span>
+        <p data-i18n="cs.4.order.v">
+          Backend and mobile first, web parity deferred: ship the hardest
+          surface — native — on a stable API, then port the full loop back to
+          the web.
+        </p>
+      </div>
+    </div>
+
+    <div class="tags" style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 2rem;" data-reveal>
+      <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">React</span>
+      <span class="tag">Tailwind</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span>
+      <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Docker</span>
+      <span class="tag">Caddy</span><span class="tag">Hetzner</span><span class="tag">PWA</span>
+    </div>
+  </section>
+
+  <!-- ============ 05 — WHAT'S CHANGING ============ -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal data-i18n="cs.5.eyebrow">05 — What ships today</p>
+      <h2 class="display-sm" data-reveal style="--delay: 80ms;" data-i18n-html="cs.5.h2">
+        The German wedge opens into a <span class="italic">learning platform</span>.
+      </h2>
+    </div>
+
+    <p class="cs-pivot" data-reveal>
+      <span>Flewi</span><span aria-hidden="true">→</span><span class="now">Flashcard Master</span>
+    </p>
+
+    <div class="cs-steps">
+
+      <article class="cs-step" data-reveal>
+        <div class="cs-step-body">
+          <h3 data-i18n="cs.5.a.h">Spaces &amp; Dashboard</h3>
+          <p data-i18n="cs.5.a.p">
+            Live on mobile. Instead of one implicit German vocabulary, every
+            user gets self-contained Spaces — Language Spaces with lookup,
+            Artikel tests and conjugations, or General Spaces with freeform
+            cards for any subject.
+          </p>
+          <p class="cs-why"><span class="k" data-i18n="cs.why">Why</span><span data-i18n="cs.5.a.why">The addressable market moves from “German learners” to anyone who uses flashcards.</span></p>
+        </div>
+      </article>
+
+      <article class="cs-step" data-reveal style="--delay: 80ms;">
+        <div class="cs-step-body">
+          <h3 data-i18n="cs.5.b.h">Three creation paths, one card model</h3>
+          <p data-i18n="cs.5.b.p">
+            Smart Add, Manual Builder and Freestyle already converge on title +
+            ordered fields. Edits happen in place on the rendered card — one
+            model instead of three divergent form UIs.
+          </p>
+          <p class="cs-why"><span class="k" data-i18n="cs.why">Why</span><span data-i18n="cs.5.b.why">Scale the product without rebuilding card creation for every new subject.</span></p>
+        </div>
+      </article>
+
+      <article class="cs-step" data-reveal style="--delay: 160ms;">
+        <div class="cs-step-body">
+          <h3 data-i18n="cs.5.c.h">Multi-language permanent lookup store</h3>
+          <p data-i18n="cs.5.c.p">
+            Kaikki ingest — 196k German entries and 5.7M form-index rows —
+            replacing fragile scrapers, with quality gating, source archiving
+            and CC BY-SA attribution.
+          </p>
+          <p class="cs-why"><span class="k" data-i18n="cs.why">Why</span><span data-i18n="cs.5.c.why">Reliability and legal cleanliness at scale; scraping does not survive going multi-language.</span></p>
+        </div>
+      </article>
+
+      <article class="cs-step" data-reveal style="--delay: 240ms;">
+        <div class="cs-step-body">
+          <h3 data-i18n="cs.5.d.h">Web ↔ mobile parity</h3>
+          <p data-i18n="cs.5.d.p">
+            Next: port the modular mobile card system back to the web SPA so
+            Spaces, Smart Add, bulk CSV, subscriptions and SRS all work on
+            flewi.app without store funneling.
+          </p>
+          <p class="cs-why"><span class="k" data-i18n="cs.why">Why</span><span data-i18n="cs.5.d.why">The full product should live wherever the user already is.</span></p>
+        </div>
+      </article>
+
+      <article class="cs-step" data-reveal style="--delay: 320ms;">
+        <div class="cs-step-body">
+          <h3 data-i18n="cs.5.e.h">One visual identity</h3>
+          <p data-i18n="cs.5.e.p">
+            A redesign that unifies the product around the mobile look as scope
+            broadens — one identity across languages, subjects and platforms.
+          </p>
+          <p class="cs-why"><span class="k" data-i18n="cs.why">Why</span><span data-i18n="cs.5.e.why">A platform needs one face, not a German-app leftover.</span></p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="cs-callout" data-reveal>
+      <span class="k" data-i18n="cs.5.through.k">The through-line</span>
+      <p data-i18n="cs.5.through.p">
+        The same title + fields card core and the same SRS engine now scale
+        across languages, subjects and platforms — turning a focused German
+        wedge into a general learning product without rebuilding the
+        foundations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="wrap" style="padding-bottom: var(--section);">
+    <div class="cta" data-reveal>
+      <p class="eyebrow" data-i18n="cs.cta.eyebrow" style="color: rgba(246,245,241,0.5);">Your product next</p>
+      <h2 class="display-sm" data-i18n-html="cs.cta.h2">We can take yours <span class="italic">this far too.</span></h2>
+      <p data-i18n="cs.cta.p">
+        Flewi went from a sharp idea to a live App Store product — built end to
+        end by the same two people you would be talking to. Tell us what you’re
+        building.
+      </p>
+      <a href="index.html#contact" class="btn" data-magnetic>
+        <span class="btn-label" data-i18n="nav.cta">Start a project</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer wrap">
+  <div class="footer-bottom" style="border: none; padding-top: 0;">
+    <span>© <span data-year>2026</span> GuiMah Studio</span>
+    <span class="footer-links">
+      <a href="impressum.html" data-i18n="foot.impressum">Impressum</a>
+      <a href="datenschutz.html" data-i18n="foot.privacy">Privacy</a>
+    </span>
+    <span data-i18n="foot.where">Remote · Berlin, Germany</span>
+  </div>
+</footer>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

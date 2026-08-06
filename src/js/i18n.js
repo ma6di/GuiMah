@@ -19,6 +19,9 @@ const de = {
   'meta.title.projects': 'Projekte — GuiMah Studio',
   'meta.desc.projects':
     'Alle Projekte von GuiMah Studio — eine veröffentlichte App-Store-Anwendung, Kunden-Websites und Full-Stack-Webanwendungen.',
+  'meta.title.flewi': 'Flewi — Case Study — GuiMah Studio',
+  'meta.desc.flewi':
+    'Flewi Case Study — wie GuiMah Studio eine live Spaced-Repetition-Lernplattform gebaut hat: von einem scharfen Deutsch-Wedge zu Spaces, Smart Add und fächerübergreifendem Lernen.',
   'meta.title.impressum': 'Impressum — GuiMah Studio',
   'meta.desc.impressum':
     'Impressum von GuiMah Studio — Guilherme Mazzolini und Mahdi Cheraghali, Berlin.',
@@ -63,6 +66,7 @@ const de = {
   'work.flewi':
     'Sprachlernplattform — entworfen, entwickelt und im Apple App Store veröffentlicht.',
   'work.flewi.link': 'Im App Store ansehen',
+  'work.flewi.case': 'Case Study lesen',
   'work.apple':
     'Apples Produktseite nachgebaut — mit scroll-gesteuerter GSAP-Animation und 3D-Modell-Viewer.',
   'work.ft':
@@ -189,6 +193,7 @@ const de = {
   'pj.flewi.body':
     'Der komplette Produktzyklus in einem Projekt: Mobile-Client, API-Design, relationale Datenmodellierung, Caching und die unspektakuläre letzte Meile aus App-Store-Einreichung, Review und Release. Die App ist öffentlich — Sie können sie herunterladen.',
   'pj.flewi.link': 'Im App Store ansehen',
+  'pj.flewi.case': 'Case Study lesen',
   'pj.2.eyebrow': '02 — Web & Produkt',
   'pj.2.h2': 'Full-Stack-Anwendungen und Frontend-Projekte.',
   'pj.apple':
@@ -216,6 +221,112 @@ const de = {
   'pj.cta.h2': 'Soll GuiMah <span class="italic">Ihres</span> bauen?',
   'pj.cta.p':
     'Erzählen Sie uns, was Sie bauen. Wir sagen Ihnen ehrlich, ob wir das richtige Team dafür sind — und wenn nicht, sagen wir das auch.',
+
+  /* Flewi case study */
+  'cs.eyebrow': 'Case Study — Flewi',
+  'cs.l2': 'Karten, die bleiben.',
+  'cs.lede':
+    'Eine live Spaced-Repetition-Plattform — Spaces, Smart Add, eine echte SRS-Engine — auf iOS, Android und im Web. Angefangen hat sie beim schwersten Teil des Deutschen. Heute öffnet sie sich für jede Sprache und jedes Thema.',
+  'cs.fact.role.k': 'Unsere Rolle',
+  'cs.fact.role.v': 'Produkt, Design, Mobile, API, Infrastruktur',
+  'cs.fact.status.k': 'Status',
+  'cs.fact.status.v': 'Live — App Store & flewi.app',
+  'cs.fact.platform.k': 'Plattformen',
+  'cs.fact.platform.v': 'iOS & Android (Expo), installierbare Web-PWA',
+  'cs.fact.now.k': 'In Arbeit',
+  'cs.fact.now.v': 'Web-Parität · Flashcard Master',
+  'cs.appstore': 'Im App Store ansehen',
+  'cs.live': 'flewi.app öffnen',
+  'cs.back': 'Alle Projekte',
+  'cs.why': 'Warum',
+
+  'cs.1.eyebrow': '01 — Warum wir es gebaut haben',
+  'cs.1.h2':
+    'Mit einem scharfen Schmerz starten. <span class="italic">Die Plattform darum herum shippen.</span>',
+  'cs.1.p1':
+    'Deutsche Artikel und unregelmäßige Pluralformen sind der Punkt, an dem die meisten Lernenden stecken bleiben — drei Artikel, kaum verlässliche Regeln, und Tools, die entweder rohe Karten auskippen oder die Grammatik weggamifizieren. Dieser Schmerz war der Einstieg.',
+  'cs.1.p2':
+    'Flewi wurde als echtes Produkt darum gebaut: eigene Spaced-Repetition-Engine, Artikel-Training, automatisch erfasste Karten, Decks, Streaks und native Apps. Dieselben Fundamente tragen heute Spaces, Smart Add und freie Karteikarten — das Live-Produkt ist schon breiter als das Problem, mit dem es angefangen hat.',
+
+  'cs.2.eyebrow': '02 — Marktrecherche',
+  'cs.2.h2': 'Drei große Tools. <span class="italic">Eine Lücke</span> dazwischen.',
+  'cs.2.anki':
+    'Ernsthaftes Spaced Repetition, brutale UX, keine Sprachintelligenz. Jede Karte baut man von Hand.',
+  'cs.2.duo':
+    'Gute Wiederholungsschleifen, flache Tiefe — schwaches Wörterbuch, keine echten eigenen Decks, dünn bei Grammatiktabellen.',
+  'cs.2.quizlet':
+    'Einfaches Teilen, generische Karten — ohne automatisch erfasste Grammatik, Artikel oder Konjugationen.',
+  'cs.2.gap.k': 'Die Lücke',
+  'cs.2.gap.p':
+    'Nichts kombinierte Wörterbuchqualität beim automatischen Erfassen — Artikel, Plural, Konjugation, Beispiele, Aussprache — mit einem ernstzunehmenden SRS und einer nativ wirkenden Oberfläche. Genau dort sitzt Flewi: Anki-Tiefe ohne Anki-Reibung, für motivierte Selbstlernende.',
+
+  'cs.3.eyebrow': '03 — Design-Entscheidungen',
+  'cs.3.h2':
+    'Drei Entscheidungen, die <span class="italic">das ganze Produkt</span> geprägt haben.',
+  'cs.3.a.h': 'Ein Kartenmodell, drei Einstiege',
+  'cs.3.a.p':
+    'Smart Add, Manual Builder und Freestyle landen auf derselben Idee: Eine Karte ist ein Titel plus geordnete Felder. Genau dieses Modell lässt Flewi von deutschen Grammatiktabellen zu jedem Fach wachsen.',
+  'cs.3.b.h': 'Automatisch erfasst, dann selbstbestimmt',
+  'cs.3.b.p':
+    'Ein Wort suchen und Artikel, Plural, Konjugation, Beispiel und TTS fertig generiert bekommen — und dann wählen, welche Bausteine zu Kartenfeldern werden. Tiefe ohne festes Template.',
+  'cs.3.c.h': 'Native, wo es zählt',
+  'cs.3.c.p':
+    'Zuerst eine gestengesteuerte PWA shippen, danach echte iOS- und Android-Builds. Mobile ist heute die Produkt-Wahrheit; das Web zieht zur vollen Parität nach.',
+
+  'cs.4.eyebrow': '04 — Architektur & Stack',
+  'cs.4.h2':
+    'Selbst gehostet, containerisiert, <span class="italic">bewusst unaufgeregt</span>.',
+  'cs.4.fe.k': 'Frontend',
+  'cs.4.fe.v':
+    'React (Vite) und Tailwind, mit eigener Gesten- und Animationslogik, ausgeliefert als PWA — Service Worker und Web-Manifest.',
+  'cs.4.mob.k': 'Mobile',
+  'cs.4.mob.v':
+    'Expo / React Native — seit v2.0 die maßgebliche Referenz für die Produkt-UX, inklusive Spaces, Quest und dem modularen Kartensystem.',
+  'cs.4.be.k': 'Backend',
+  'cs.4.be.v':
+    'FastAPI (async Python) mit SQLAlchemy und Alembic, PostgreSQL für relationale Daten, Redis für Cache, Sessions und kurzlebigen Zustand.',
+  'cs.4.infra.k': 'Infrastruktur',
+  'cs.4.infra.v':
+    'Vollständig dockerisierte Services — Frontend, API, Datenbank, Cache, Proxy — hinter einem Caddy-Reverse-Proxy mit automatischem TLS, selbst gehostet bei Hetzner mit Deploys ohne Ausfallzeit.',
+  'cs.4.order.k': 'Zentrale Entscheidung',
+  'cs.4.order.v':
+    'Backend und Mobile zuerst, Web-Parität später: die schwerste Oberfläche — nativ — auf einer stabilen API ausliefern und den vollen Loop danach zurück ins Web portieren.',
+
+  'cs.5.eyebrow': '05 — Was heute live ist',
+  'cs.5.h2':
+    'Der Deutsch-Wedge öffnet sich zur <span class="italic">Lernplattform</span>.',
+  'cs.5.a.h': 'Spaces & Dashboard',
+  'cs.5.a.p':
+    'Live auf Mobile. Statt eines impliziten deutschen Wortschatzes bekommt jede Person eigenständige Spaces — Language Spaces mit Lookup, Artikel-Tests und Konjugationen, oder General Spaces mit freien Karten zu jedem Thema.',
+  'cs.5.a.why':
+    'Der adressierbare Markt wandert von „Deutschlernenden“ zu allen, die mit Karteikarten lernen.',
+  'cs.5.b.h': 'Drei Wege zur Karte, ein Kartenmodell',
+  'cs.5.b.p':
+    'Smart Add, Manual Builder und Freestyle laufen schon auf Titel + geordnete Felder. Bearbeitet wird direkt auf der gerenderten Karte — ein Modell statt drei auseinanderlaufender Formular-UIs.',
+  'cs.5.b.why':
+    'Das Produkt skalieren, ohne die Kartenerstellung für jedes neue Fach neu zu bauen.',
+  'cs.5.c.h': 'Mehrsprachiger, dauerhafter Nachschlage-Store',
+  'cs.5.c.p':
+    'Kaikki-Import — 196.000 deutsche Einträge und 5,7 Mio. Formen-Index-Zeilen — als Ersatz für fragile Scraper, mit Qualitätsprüfung, Quellenarchivierung und CC-BY-SA-Attribution.',
+  'cs.5.c.why':
+    'Verlässlichkeit und rechtliche Sauberkeit im großen Maßstab; Scraping überlebt den Schritt in die Mehrsprachigkeit nicht.',
+  'cs.5.d.h': 'Parität zwischen Web und Mobile',
+  'cs.5.d.p':
+    'Als Nächstes: das modulare Kartensystem zurück in die Web-SPA portieren, damit Spaces, Smart Add, CSV-Import, Abos und SRS auf flewi.app ohne Store-Trichter funktionieren.',
+  'cs.5.d.why':
+    'Das volle Produkt soll dort leben, wo die Nutzenden schon sind.',
+  'cs.5.e.h': 'Eine visuelle Identität',
+  'cs.5.e.p':
+    'Ein Redesign, das das Produkt rund um den Mobile-Look vereinheitlicht, während der Umfang wächst — eine Identität über Sprachen, Themen und Plattformen.',
+  'cs.5.e.why': 'Eine Plattform braucht ein Gesicht, keinen Deutsch-App-Rest.',
+  'cs.5.through.k': 'Der rote Faden',
+  'cs.5.through.p':
+    'Derselbe Kartenkern aus Titel + Feldern und dieselbe SRS-Engine skalieren jetzt über Sprachen, Fächer und Plattformen — aus einem scharfen Deutsch-Wedge wird ein allgemeines Lernprodukt, ohne das Fundament neu zu bauen.',
+
+  'cs.cta.eyebrow': 'Ihr Produkt als Nächstes',
+  'cs.cta.h2': 'So weit bringen wir <span class="italic">Ihres auch.</span>',
+  'cs.cta.p':
+    'Flewi ging von einer scharfen Idee zum live App-Store-Produkt — end-to-end gebaut von denselben zwei Personen, mit denen Sie sprechen würden. Erzählen Sie uns, was Sie bauen.',
 };
 
 const STORE = 'guimah-lang';
