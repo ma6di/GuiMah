@@ -54,3 +54,21 @@
 	# than silently serve index.html (which would break analytics + SEO).
 	file_server
 }
+
+# =============================================================================
+# Internal health endpoint
+#
+# Loopback-only and plain HTTP on purpose. The Docker healthcheck must not go
+# through the public site block: once SITE_ADDRESS is a real domain, a request
+# to http://localhost/ gets a 308 to https://localhost/, where the TLS
+# handshake fails because Caddy only holds a certificate for the real domain.
+# The container then reports unhealthy forever while serving traffic perfectly.
+#
+# Serving the real index.html from /srv means this also fails loudly if the
+# built site is missing from the image, not just if Caddy is down.
+# =============================================================================
+http://127.0.0.1:8081 {
+	root * /srv
+	rewrite * /index.html
+	file_server
+}

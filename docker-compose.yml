@@ -26,10 +26,14 @@ services:
       - caddy_data:/data      # Let's Encrypt account + issued certs
       - caddy_config:/config  # Caddy's managed state
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+      # Hits the loopback-only plain-HTTP endpoint from the Caddyfile, not the
+      # public site block — see the comment there. Checking the public one would
+      # report unhealthy forever as soon as SITE_ADDRESS is a real domain.
+      test: ["CMD", "wget", "--spider", "-q", "http://127.0.0.1:8081/"]
       interval: 30s
       timeout: 5s
       retries: 3
+      start_period: 10s
 
 volumes:
   caddy_data:

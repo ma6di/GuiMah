@@ -36,4 +36,10 @@ COPY --from=build /app/dist /srv
 
 EXPOSE 80 443
 
+# Same check compose declares, so a plain `docker run` reports health too.
+# Port 8081 is the loopback-only endpoint in the Caddyfile — deliberately not
+# the public site, which requires the real hostname and a valid certificate.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget --spider -q http://127.0.0.1:8081/ || exit 1
+
 # Caddy's default CMD reads /etc/caddy/Caddyfile — no override needed.
