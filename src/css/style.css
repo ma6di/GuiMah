@@ -518,13 +518,9 @@ a.work-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 }
 .work:hover .work-media img { transform: scale(1.045); }
 
-/* Flewi is a wide 5-screen app strip, not a single page shot. Center the crop
-   (default is top-anchored, tuned for website screenshots) so the phones sit
-   in the middle. On the featured projects card the tile's aspect-ratio matches
-   the image, so "cover" shows the whole strip with no crop; on the home grid
-   card's 16:10 tile it crops to the middle screens, which stay legible. The
-   pale fill matches the app's light theme in case of any sub-pixel gap. */
-.work-media--flewi { background: var(--paper); }
+/* Flewi multi-phone strip is authored at 16:10 so the home shot tile shows
+   every screen without cover-cropping to the middle. */
+.work-media--flewi { background: #f8f9fc; }
 .work-media--flewi img { object-position: center; }
 
 /* Placeholder tile for code projects with no screenshot */

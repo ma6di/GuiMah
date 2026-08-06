@@ -169,23 +169,26 @@ const INTENTS = [
   /* ---------------- Studio ---------------- */
   {
     id: 'services',
+    // Deliberately no bare "offer"/"do you offer": "do you offer photography?"
+    // is a question about photography, not a request for the whole list.
     keys: ['what do you do', 'what do you build', 'what do you make', 'what you do', 'services', 'service',
-           'offer', 'do you offer', 'what can you build', 'specialise', 'specialize', 'expertise',
+           'what do you offer', 'what can you build', 'specialise', 'specialize', 'expertise',
            'was macht ihr', 'was machen sie', 'was baut ihr', 'was bauen sie', 'leistungen',
            'dienstleistungen', 'angebot', 'womit beschaftigt'],
     chip: { en: 'What do you build?', de: 'Was baut ihr?' },
     reply: {
-      en: 'Four things, all in-house: web applications with real auth and real data, mobile products in React Native (built and pushed through App Store review), AI & automation with sensible fallbacks, and backend/APIs — schema design, caching, containerised deploys.',
-      de: 'Vier Dinge, alles im Haus: Web-Anwendungen mit echter Authentifizierung und echten Daten, mobile Produkte mit React Native (entwickelt und durch das App-Store-Review gebracht), KI & Automatisierung mit sinnvollen Fallbacks, sowie Backend und APIs — Schema-Design, Caching, containerisierte Deployments.',
+      en: 'Four things in software, all in-house: web applications with real auth and real data, mobile products in React Native (built and pushed through App Store review), AI & automation with sensible fallbacks, and backend/APIs — schema design, caching, containerised deploys. Alongside that we also offer professional photography, IT support and IT consulting.',
+      de: 'Vier Dinge in der Software, alles im Haus: Web-Anwendungen mit echter Authentifizierung und echten Daten, mobile Produkte mit React Native (entwickelt und durch das App-Store-Review gebracht), KI & Automatisierung mit sinnvollen Fallbacks, sowie Backend und APIs — Schema-Design, Caching, containerisierte Deployments. Dazu bieten wir professionelle Fotografie, IT-Support und IT-Beratung an.',
     },
-    next: ['stack', 'projects', 'pricing'],
+    next: ['photography', 'itsupport', 'stack', 'pricing'],
   },
   {
     id: 'team',
-    keys: ['who are you guys', 'the team', 'team', 'who works', 'how many people', 'how many of you',
+    // Head-count questions live in `teamsize`; this one is about who we are.
+    keys: ['who are you guys', 'the team', 'team', 'who works',
            'who is behind', 'whos behind', 'behind this', 'behind guimah', 'about you',
-           'company size', 'agency', 'founders', 'guilherme', 'gui', 'mahdi', 'mazzolini', 'cheraghali',
-           'wer seid ihr', 'wer arbeitet', 'wie viele', 'euer team', 'ihr team', 'grunder'],
+           'agency', 'founders', 'guilherme', 'gui', 'mahdi', 'mazzolini', 'cheraghali',
+           'wer seid ihr', 'wer arbeitet', 'euer team', 'ihr team', 'grunder'],
     chip: { en: 'Who is behind GuiMah?', de: 'Wer steckt hinter GuiMah?' },
     reply: {
       en: 'Two engineers: Guilherme Mazzolini and Mahdi Cheraghali. Every project is built together, end to end — the two people on the call are the two people writing the code. More on the [about section](index.html#about).',
@@ -194,8 +197,82 @@ const INTENTS = [
     next: ['location', 'services', 'projects'],
   },
   {
+    id: 'teamsize',
+    keys: ['how big is your team', 'how big is the team', 'team size', 'size of your team',
+           'how many people', 'how many of you', 'how many are you', 'how many developers',
+           'how many engineers', 'headcount', 'company size', 'just two', 'only two', 'is two enough',
+           'can you scale', 'scale up', 'bigger team', 'more people', 'big project', 'large project',
+           'wie gross ist euer team', 'wie gross ist das team', 'teamgrosse', 'wie viele seid ihr',
+           'wie viele leute', 'wie viele entwickler', 'nur zwei', 'skalieren', 'grosses projekt'],
+    chip: { en: 'How big is your team?', de: 'Wie groß ist euer Team?' },
+    reply: {
+      en: 'Two of us at the core — Guilherme and Mahdi, who build every project together. For bigger jobs we can expand to a team of more than 10, so project size isn\'t a limit.',
+      de: 'Im Kern sind wir zu zweit — Guilherme und Mahdi, die jedes Projekt gemeinsam umsetzen. Für größere Aufgaben können wir auf ein Team von mehr als 10 Personen aufstocken; die Projektgröße ist also keine Grenze.',
+    },
+    next: ['team', 'services', 'contact'],
+  },
+  {
+    id: 'meeting',
+    keys: ['meeting', 'in person', 'in person meeting', 'meet', 'meet you', 'meet up', 'can we meet',
+           'could we meet', 'face to face', 'coffee', 'video call', 'zoom', 'appointment',
+           'schedule a call', 'book a call', 'sit down', 'come over', 'visit you',
+           'treffen', 'personlich', 'personliches treffen', 'termin', 'kennenlernen', 'vor ort',
+           'konnen wir uns treffen', 'videocall', 'gesprach', 'besprechung'],
+    chip: { en: 'Can we meet in person?', de: 'Können wir uns treffen?' },
+    reply: {
+      en: 'Yes, gladly. Leave us your contact details and we\'ll arrange a meeting as soon as possible.',
+      de: 'Ja, sehr gerne. Hinterlassen Sie uns Ihre Kontaktdaten, und wir vereinbaren so schnell wie möglich ein Treffen.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['address', 'location', 'contact'],
+  },
+  {
+    id: 'address',
+    keys: ['address', 'your address', 'street', 'office', 'your office', 'where is your office',
+           'do you have an office', 'postal address', 'headquarters', 'premises', 'come to your office',
+           'adresse', 'eure adresse', 'anschrift', 'buro', 'euer buro', 'habt ihr ein buro',
+           'wo ist euer buro', 'raumlichkeiten'],
+    chip: { en: 'What is your address?', de: 'Wie lautet eure Adresse?' },
+    reply: {
+      en: 'We currently work fully remote, so there\'s no walk-in office — but a meeting at a proper place is no problem at all. Tell us roughly where you are and we\'ll arrange it.',
+      de: 'Wir arbeiten derzeit vollständig remote, es gibt also kein Büro zum Vorbeikommen — ein Treffen an einem passenden Ort ist aber überhaupt kein Problem. Sagen Sie uns ungefähr, wo Sie sind, und wir organisieren das.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['meeting', 'location'],
+  },
+  {
+    id: 'photography',
+    keys: ['photography', 'photographer', 'photo', 'photos', 'photoshoot', 'photo shoot', 'photograph',
+           'pictures', 'product photography', 'headshots', 'shoot',
+           'fotografie', 'fotograf', 'foto', 'fotos', 'bilder', 'fotoshooting', 'aufnahmen'],
+    chip: { en: 'Do you do photography?', de: 'Macht ihr Fotografie?' },
+    reply: {
+      en: 'Yes — professional photography is one of our services. It pairs well with a website or a launch that deserves real images instead of stock.',
+      de: 'Ja — professionelle Fotografie gehört zu unseren Leistungen. Das passt gut zu einer Website oder einem Launch, der echte Bilder statt Stockfotos verdient.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['itsupport', 'services', 'pricing'],
+  },
+  {
+    id: 'itsupport',
+    keys: ['it support', 'it help', 'help desk', 'helpdesk', 'it consulting', 'it consultancy',
+           'it consultation', 'consulting', 'consultancy', 'consultation', 'maintenance', 'maintain',
+           'troubleshooting', 'technical support', 'support contract', 'ongoing support',
+           'it beratung', 'it unterstutzung', 'beratung', 'wartung', 'betreuung', 'it dienstleistungen',
+           'technischer support'],
+    chip: { en: 'Do you offer IT support?', de: 'Bietet ihr IT-Support?' },
+    reply: {
+      en: 'Yes — IT support and IT consulting are both on offer: keeping things running, advising on a setup, or a one-off consultation before you commit to a direction.',
+      de: 'Ja — IT-Support und IT-Beratung bieten wir beide an: Dinge am Laufen halten, bei einem Setup beraten oder eine einmalige Beratung, bevor Sie sich auf eine Richtung festlegen.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['photography', 'services', 'contact'],
+  },
+  {
     id: 'location',
-    keys: ['where are you', 'where are you based', 'where do you work', 'location', 'based in', 'office',
+    // "office"/"address" belong to `address` — that question wants the meeting
+    // answer, not the country we're in.
+    keys: ['where are you', 'where are you based', 'where do you work', 'location', 'based in',
            'city', 'country', 'berlin', 'germany', 'remote', 'do you work remotely', 'timezone', 'time zone',
            'wo seid ihr', 'wo sind sie', 'standort', 'wo arbeitet ihr', 'deutschland', 'zeitzone'],
     chip: { en: 'Where are you based?', de: 'Wo seid ihr?' },
@@ -275,6 +352,192 @@ const INTENTS = [
     next: ['projects', 'contact'],
   },
 
+  /* ---------------- Scope of work ---------------- */
+  {
+    id: 'takeover',
+    keys: ['existing website', 'existing site', 'existing app', 'take over', 'takeover', 'my website',
+           'my site', 'current website', 'current site', 'redesign', 'rebuild', 'fix my', 'improve my',
+           'migrate', 'migration', 'legacy', 'relaunch', 'developer left', 'unfinished',
+           'bestehende website', 'bestehende seite', 'ubernehmen', 'uberarbeiten', 'meine website',
+           'umbauen', 'neu machen'],
+    chip: { en: 'Can you fix my existing site?', de: 'Könnt ihr meine Website übernehmen?' },
+    reply: {
+      en: 'Yes — taking over an existing site or app is ordinary work for us, whether it needs a rescue, a rebuild, or just someone reliable to keep it moving. Send us the URL and what\'s wrong with it.',
+      de: 'Ja — eine bestehende Website oder App zu übernehmen ist für uns normale Arbeit, ob Rettung, Neuaufbau oder einfach jemand Verlässliches, der sie weiterführt. Schicken Sie uns die URL und was daran hakt.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['services', 'process', 'pricing'],
+  },
+  {
+    id: 'ecommerce',
+    keys: ['online shop', 'webshop', 'web shop', 'ecommerce', 'e commerce', 'shop', 'sell online',
+           'checkout', 'cart', 'stripe', 'online store', 'sell products',
+           'onlineshop', 'online laden', 'verkaufen', 'warenkorb', 'kasse'],
+    chip: { en: 'Can you build a shop?', de: 'Könnt ihr einen Shop bauen?' },
+    reply: {
+      en: 'Yes — we\'re building an e-commerce platform from scratch in Next.js right now, so shops with real checkout flows are squarely in scope. It\'s on the [projects page](projects.html).',
+      de: 'Ja — wir bauen gerade eine E-Commerce-Plattform von Grund auf mit Next.js, Shops mit echten Checkout-Abläufen liegen also klar im Rahmen. Zu sehen auf der [Projektseite](projects.html).',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['projects', 'pricing'],
+  },
+  {
+    id: 'multilingual',
+    keys: ['two languages', 'multiple languages', 'multilingual', 'multi language', 'translation',
+           'translate', 'english and german', 'bilingual', 'i18n', 'localisation', 'localization',
+           'mehrsprachig', 'zweisprachig', 'ubersetzung', 'ubersetzen', 'mehrere sprachen'],
+    chip: { en: 'Can it be bilingual?', de: 'Geht das zweisprachig?' },
+    reply: {
+      en: 'Yes — the site you\'re on is fully bilingual EN/DE, legal pages and this chat included. Multi-language is something we\'ve actually shipped, not a checkbox on a list.',
+      de: 'Ja — die Website, auf der Sie gerade sind, ist komplett zweisprachig EN/DE, inklusive Rechtstexte und diesem Chat. Mehrsprachigkeit haben wir also wirklich umgesetzt, nicht nur angekreuzt.',
+    },
+    next: ['services', 'projects'],
+  },
+  {
+    id: 'hosting',
+    keys: ['hosting', 'do you host', 'host it', 'server', 'servers', 'domain', 'domains', 'deployment',
+           'deploy', 'hetzner', 'aws', 'cloud', 'ssl', 'https', 'certificate', 'uptime',
+           'hosten', 'serverbetrieb', 'domains registrieren', 'betreiben'],
+    chip: { en: 'Do you handle hosting?', de: 'Übernehmt ihr das Hosting?' },
+    reply: {
+      en: 'Yes, hosting and deployment can be part of it. We run our own product exactly that way: Dockerised services behind a Caddy reverse proxy with automatic TLS, self-hosted on Hetzner with zero-downtime deploys.',
+      de: 'Ja, Hosting und Deployment können dazugehören. Unser eigenes Produkt läuft genau so: dockerisierte Services hinter einem Caddy-Reverse-Proxy mit automatischem TLS, selbst gehostet bei Hetzner, Deploys ohne Ausfallzeit.',
+    },
+    next: ['stack', 'itsupport', 'pricing'],
+  },
+  {
+    id: 'cms',
+    keys: ['cms', 'edit the content', 'edit content', 'update the text', 'update content', 'edit it myself',
+           'update it myself', 'change the text', 'wordpress', 'headless', 'admin panel', 'admin area',
+           'backend access', 'content management',
+           'inhalte bearbeiten', 'selbst bearbeiten', 'selbst pflegen', 'texte andern', 'redaktionssystem'],
+    chip: { en: 'Can I edit content myself?', de: 'Kann ich Inhalte selbst pflegen?' },
+    reply: {
+      en: 'That depends on the build — a CMS or admin area is something we scope with you rather than assume, because it changes the shape of the project. Tell us how often your content changes and we\'ll advise.',
+      de: 'Das hängt vom Projekt ab — ein CMS oder Admin-Bereich wird mit Ihnen abgestimmt und nicht vorausgesetzt, weil es das Projekt anders zuschneidet. Sagen Sie uns, wie oft sich Ihre Inhalte ändern, dann beraten wir Sie.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['process', 'pricing'],
+  },
+  {
+    id: 'seo',
+    keys: ['seo', 'search engine', 'google ranking', 'ranking', 'rank on google', 'found on google',
+           'page speed', 'load time', 'loading', 'lighthouse', 'core web vitals', 'how fast is',
+           'suchmaschine', 'suchmaschinenoptimierung', 'ladezeit', 'sichtbarkeit', 'gefunden werden'],
+    chip: { en: 'What about SEO & speed?', de: 'Was ist mit SEO & Tempo?' },
+    reply: {
+      en: 'Both are built in rather than bolted on: static-first pages, self-hosted fonts, semantic markup, proper metadata and Open Graph tags. We can\'t promise a Google position — nobody honestly can — but the technical groundwork is there.',
+      de: 'Beides ist eingebaut statt nachgerüstet: statisch ausgelieferte Seiten, selbst gehostete Schriften, semantisches Markup, saubere Metadaten und Open-Graph-Tags. Eine Google-Position können wir nicht versprechen — das kann seriös niemand —, aber die technische Grundlage steht.',
+    },
+    next: ['accessibility', 'services'],
+  },
+  {
+    id: 'accessibility',
+    keys: ['accessibility', 'accessible', 'a11y', 'wcag', 'screen reader', 'screenreader',
+           'keyboard navigation', 'colour contrast', 'color contrast', 'disabled users',
+           'barrierefrei', 'barrierefreiheit', 'bfsg', 'zuganglich', 'screenreader tauglich'],
+    chip: { en: 'Is it accessible?', de: 'Ist es barrierefrei?' },
+    reply: {
+      en: 'It matters to us — this very site ships skip links, ARIA labelling, visible keyboard focus and full prefers-reduced-motion support. How far a given project goes (WCAG level, audits) is something we scope together.',
+      de: 'Das ist uns wichtig — schon diese Website hat Skip-Links, ARIA-Auszeichnung, sichtbaren Tastaturfokus und volle Unterstützung für prefers-reduced-motion. Wie weit ein Projekt geht (WCAG-Stufe, Audits), stimmen wir gemeinsam ab.',
+    },
+    next: ['gdpr', 'seo', 'services'],
+  },
+  {
+    id: 'gdpr',
+    keys: ['gdpr', 'dsgvo', 'data protection', 'privacy', 'privacy policy', 'cookies', 'cookie banner',
+           'compliant', 'compliance', 'data privacy', 'tracking',
+           'datenschutz', 'datenschutzerklarung', 'cookie hinweis', 'rechtssicher', 'abmahnsicher'],
+    chip: { en: 'What about GDPR?', de: 'Und der Datenschutz?' },
+    reply: {
+      en: 'We build with data protection in mind — this site self-hosts its fonts, sets no analytics or advertising cookies, and ships its own privacy notice. Our own formal GDPR paperwork is still in progress, so we\'d go through the specifics with you directly. We\'re engineers, not lawyers, so we don\'t promise legal compliance.',
+      de: 'Wir bauen mit Datenschutz im Blick — diese Website hostet ihre Schriften selbst, setzt keine Analyse- oder Werbe-Cookies und hat eine eigene Datenschutzerklärung. Unsere eigene formale DSGVO-Dokumentation ist noch in Arbeit, die Details würden wir also direkt mit Ihnen durchgehen. Wir sind Entwickler, keine Juristen — Rechtskonformität versprechen wir daher nicht.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['accessibility', 'hosting'],
+  },
+
+  /* ---------------- Commercials ----------------
+     Terms are settled per project, in writing. The bot points at that rather
+     than inventing conditions nobody has agreed to. */
+  {
+    id: 'ownership',
+    keys: ['own the code', 'owns the code', 'ownership', 'who owns', 'source code', 'intellectual property',
+           'copyright', 'the rights', 'my property', 'handover',
+           'quellcode', 'urheberrecht', 'eigentum', 'rechte am code', 'wem gehort', 'ubergabe'],
+    chip: { en: 'Who owns the code?', de: 'Wem gehört der Code?' },
+    reply: {
+      en: 'We settle code ownership in writing per project, before the work starts, so nothing is left open afterwards. Send us an enquiry and we\'ll set it out for your case.',
+      de: 'Die Rechte am Code halten wir pro Projekt schriftlich fest, bevor die Arbeit beginnt — damit hinterher nichts offen bleibt. Schicken Sie uns eine Anfrage, dann legen wir es für Ihren Fall dar.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['nda', 'payment', 'process'],
+  },
+  {
+    id: 'nda',
+    keys: ['nda', 'non disclosure', 'nondisclosure', 'confidential', 'confidentiality', 'secret project',
+           'under wraps', 'geheimhaltung', 'geheimhaltungsvereinbarung', 'vertraulich',
+           'vertraulichkeit', 'verschwiegenheit'],
+    chip: { en: 'Do you sign NDAs?', de: 'Unterschreibt ihr NDAs?' },
+    reply: {
+      en: 'Send the NDA along with your enquiry and we\'ll review it before any detail gets discussed.',
+      de: 'Schicken Sie die NDA zusammen mit Ihrer Anfrage — wir sehen sie uns an, bevor Details besprochen werden.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['ownership', 'contact'],
+  },
+  {
+    id: 'payment',
+    keys: ['how do i pay', 'how do you get paid', 'payment terms', 'payment', 'deposit', 'upfront',
+           'up front', 'milestones', 'instalments', 'installments', 'net 30', 'bank transfer',
+           'zahlung', 'zahlungsbedingungen', 'anzahlung', 'raten', 'vorkasse', 'uberweisung', 'bezahlen'],
+    chip: { en: 'How does payment work?', de: 'Wie läuft die Zahlung?' },
+    reply: {
+      en: 'Payment terms are agreed per project and put in writing before anything starts — send us an enquiry and we\'ll set them out for your scope.',
+      de: 'Die Zahlungsbedingungen vereinbaren wir pro Projekt und halten sie schriftlich fest, bevor etwas beginnt — schicken Sie uns eine Anfrage, dann legen wir sie für Ihren Umfang dar.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['vat', 'pricing', 'ownership'],
+  },
+  {
+    id: 'vat',
+    keys: ['vat', 'vat number', 'vat id', 'invoice', 'invoices', 'invoicing', 'tax', 'receipt',
+           'umsatzsteuer', 'ust', 'ust idnr', 'mwst', 'mehrwertsteuer', 'steuer', 'rechnung',
+           'rechnungsstellung', 'steuernummer'],
+    chip: { en: 'Do you invoice with VAT?', de: 'Rechnung mit Umsatzsteuer?' },
+    reply: {
+      en: 'Our VAT registration is still being set up — that part is in progress. We\'ll confirm the invoicing details with you directly before any work starts.',
+      de: 'Unsere Umsatzsteuer-Registrierung wird gerade eingerichtet — das ist noch in Arbeit. Die Rechnungsdetails klären wir direkt mit Ihnen, bevor die Arbeit beginnt.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['payment', 'contact'],
+  },
+  {
+    id: 'aftercare',
+    keys: ['after launch', 'after the launch', 'once its live', 'post launch', 'warranty', 'guarantee',
+           'fix bugs', 'bugs after', 'what happens after', 'long term', 'keep it updated',
+           'nach dem launch', 'nach dem start', 'garantie', 'fehler beheben', 'danach', 'langfristig'],
+    chip: { en: 'What happens after launch?', de: 'Was passiert nach dem Launch?' },
+    reply: {
+      en: 'A launch isn\'t the end of it. What happens afterwards — bug fixes, updates, ongoing support — is agreed per project, and IT support and consulting are things we offer for exactly that.',
+      de: 'Mit dem Launch ist es nicht vorbei. Was danach passiert — Fehlerbehebung, Updates, laufende Betreuung — vereinbaren wir pro Projekt, und genau dafür bieten wir IT-Support und Beratung an.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['itsupport', 'hosting', 'payment'],
+  },
+  {
+    id: 'hiring',
+    keys: ['are you hiring', 'hiring', 'job', 'jobs', 'vacancy', 'vacancies', 'internship', 'intern',
+           'work for you', 'join your team', 'my cv', 'my resume', 'application',
+           'stelle', 'stellenangebot', 'praktikum', 'bewerbung', 'mitarbeiten', 'lebenslauf'],
+    reply: {
+      en: 'We\'re two at the core and don\'t run a standing hiring process — but we do expand the team per project. If you work in this field, say hello anyway.',
+      de: 'Wir sind im Kern zu zweit und haben kein laufendes Bewerbungsverfahren — für Projekte stocken wir das Team aber auf. Wenn Sie in dem Bereich arbeiten, melden Sie sich trotzdem gern.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['teamsize', 'contact'],
+  },
+
   /* ---------------- Money, time, process ---------------- */
   {
     id: 'pricing',
@@ -333,6 +596,19 @@ const INTENTS = [
     next: ['services', 'process'],
   },
   {
+    id: 'responsetime',
+    keys: ['how quickly do you reply', 'how fast do you reply', 'how long to reply', 'response time',
+           'when will you reply', 'when do you reply', 'hear back', 'how soon do you answer',
+           'antwortzeit', 'wie schnell antwortet', 'wann antwortet ihr', 'wie schnell meldet'],
+    chip: { en: 'How fast do you reply?', de: 'Wie schnell antwortet ihr?' },
+    reply: {
+      en: 'Within one business day for enquiries — and it\'s Guilherme or Mahdi replying, not a ticket queue.',
+      de: 'Bei Anfragen innerhalb eines Werktags — und es antworten Guilherme oder Mahdi, keine Ticket-Warteschlange.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['contact', 'process'],
+  },
+  {
     id: 'contact',
     keys: ['contact', 'contact you', 'get in touch', 'reach you', 'email', 'e mail', 'mail', 'phone',
            'call you', 'number', 'talk to a human', 'speak to someone', 'enquiry', 'inquiry',
@@ -345,6 +621,62 @@ const INTENTS = [
     },
     action: ACTION_ENQUIRY,
     next: ['location', 'process'],
+  },
+
+  /* ---------------- Conversation repair ----------------
+     A keyword bot will miss things. These keep the miss from turning into a
+     dead end: apologise once, then get a human involved. */
+  {
+    id: 'frustration',
+    keys: ['useless', 'not helpful', 'youre not helping', 'you are not helping', 'not helping',
+           'stupid bot', 'dumb bot', 'bad bot', 'terrible', 'annoying', 'you dont understand',
+           'you do not understand', 'that didnt help', 'wrong answer', 'nonsense', 'rubbish',
+           'nutzlos', 'blodsinn', 'hilft nicht', 'hilft mir nicht', 'verstehst nichts', 'unbrauchbar',
+           'quatsch', 'bringt nichts'],
+    reply: {
+      en: 'Sorry — that\'s on me. I\'m a simple keyword bot and I miss plenty. A human will do better: send us a message and Guilherme or Mahdi will reply.',
+      de: 'Entschuldigung — das liegt an mir. Ich bin ein einfacher Stichwort-Bot und übersehe einiges. Ein Mensch macht das besser: Schicken Sie uns eine Nachricht, Guilherme oder Mahdi antworten Ihnen.',
+    },
+    action: ACTION_ENQUIRY,
+    next: ['contact', 'help'],
+  },
+  {
+    id: 'compliment',
+    keys: ['nice site', 'nice website', 'cool site', 'great site', 'love the site', 'love this site',
+           'looks good', 'looks great', 'looks nice', 'nice design', 'nice work', 'great work',
+           'good work', 'impressive', 'beautiful', 'well done', 'i like it', 'like your site',
+           'schone website', 'schone seite', 'tolle seite', 'gefallt mir', 'sieht gut aus',
+           'gut gemacht', 'sehr schon'],
+    reply: {
+      en: ['Thank you — that\'s kind. Guilherme and Mahdi built it themselves, no template involved.',
+           'Much appreciated! It\'s hand-built — glad it landed.'],
+      de: ['Danke — das freut uns. Guilherme und Mahdi haben sie selbst gebaut, ganz ohne Template.',
+           'Vielen Dank! Handgebaut — schön, dass es gefällt.'],
+    },
+    next: ['projects', 'services', 'contact'],
+  },
+  {
+    id: 'alreadysent',
+    keys: ['already sent', 'i sent', 'ive sent', 'did you get my', 'sent you an email', 'sent a message',
+           'no reply', 'havent heard', 'have not heard', 'still waiting', 'any update',
+           'schon geschickt', 'schon geschrieben', 'habe geschrieben', 'keine antwort', 'noch keine antwort',
+           'warte noch'],
+    reply: {
+      en: 'Thanks for getting in touch already — enquiries are answered within one business day, so a reply should be with you shortly. If it\'s been longer than that, email hello@guimah.studio directly and we\'ll chase it.',
+      de: 'Danke, dass Sie sich schon gemeldet haben — Anfragen beantworten wir innerhalb eines Werktags, eine Antwort sollte also bald da sein. Falls es länger dauert, schreiben Sie direkt an hello@guimah.studio, dann gehen wir dem nach.',
+    },
+    next: ['contact', 'responsetime'],
+  },
+  {
+    id: 'whobuiltyou',
+    keys: ['who built you', 'who made you', 'who created you', 'how were you built', 'how are you built',
+           'what are you made of', 'are you open source', 'what powers you', 'which model',
+           'wer hat dich gebaut', 'wer hat dich gemacht', 'wie wurdest du gebaut', 'welches modell'],
+    reply: {
+      en: 'Guilherme and Mahdi did, in plain JavaScript — no AI model, no server, no tracking. Everything I say is written by hand in a list of answers, which is why I\'m confident about GuiMah and useless about everything else.',
+      de: 'Guilherme und Mahdi, in reinem JavaScript — kein KI-Modell, kein Server, kein Tracking. Alles, was ich sage, steht handgeschrieben in einer Antwortliste. Deshalb bin ich bei GuiMah sicher und bei allem anderen nutzlos.',
+    },
+    next: ['ai', 'services', 'help'],
   },
 ];
 
@@ -396,6 +728,14 @@ const DE_MARKERS = new Set([
   'bauen', 'habt', 'haben', 'seid', 'sind', 'ist', 'geht', 'gibt', 'brauche', 'mochte', 'wurde',
   'projekte', 'arbeiten', 'arbeitet', 'leistungen', 'kontakt', 'anfrage', 'deutsch', 'lange', 'dauert',
   'stundensatz', 'kunden', 'referenzen', 'hilfe', 'wirklich', 'sehr', 'gut', 'schon',
+  'treffen', 'termin', 'personlich', 'personliches', 'moglich', 'gern', 'gerne', 'hatte',
+  'buro', 'adresse', 'anschrift', 'lautet', 'gross', 'grosse', 'fotografie', 'fotograf',
+  'beratung', 'bietet', 'bieten', 'braucht', 'brauchen', 'wartung', 'unterstutzung',
+  'bestehende', 'ubernehmen', 'uberarbeiten', 'meine', 'unsere', 'datenschutz', 'rechnung',
+  'zahlung', 'anzahlung', 'bezahlen', 'quellcode', 'urheberrecht', 'vertraulich', 'geheimhaltung',
+  'inhalte', 'pflegen', 'garantie', 'danach', 'stelle', 'bewerbung', 'praktikum', 'nutzlos',
+  'hilft', 'gefallt', 'sieht', 'tolle', 'schone', 'geschickt', 'geschrieben', 'antwort',
+  'antwortet', 'zweisprachig', 'mehrsprachig', 'ubersetzung', 'barrierefrei',
 ]);
 
 /** German if the message shows a German marker; otherwise follow the site. */
