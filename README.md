@@ -59,7 +59,7 @@ docker compose up --build     # SITE_ADDRESS defaults to localhost
 # https://localhost/  — browser will warn once, then trust it
 ```
 
-Update `hello@guimah.studio` in `Caddyfile` if you switch the domain — Let's Encrypt
+Update `guimahstudio@gmail.com` in `Caddyfile` if you switch the domain — Let's Encrypt
 uses that address to warn about expiring accounts.
 
 ## Structure
@@ -204,7 +204,7 @@ keep the `frame short` classes and leave the `<figcaption>` in place.
 - **Contact form** posts to Formspree (`https://formspree.io/f/xojgdzzn`) via `fetch`.
   The endpoint lives on the `<form action>` in `index.html`; success/error copy is handled
   in `src/js/main.js`. Confirm your domain in the Formspree dashboard before going live.
-- Update `hello@guimah.studio` in `index.html` (and Formspree notification settings) if
+- Update `guimahstudio@gmail.com` in `index.html` (and Formspree notification settings) if
   you register a different domain.
 - Animations are gated behind a `.js` class on `<html>` and respect
   `prefers-reduced-motion`. Without JS the page renders as a plain readable document.

@@ -14,7 +14,7 @@
 	# debug
 
 	# Real email so Let's Encrypt can warn about expiring accounts.
-	email hello@guimah.studio
+	email guimahstudio@gmail.com
 }
 
 {$SITE_ADDRESS:localhost} {

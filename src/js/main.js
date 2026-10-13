@@ -341,8 +341,8 @@ import { initChat } from './chatbot.js';
         ? 'Danke — wir melden uns innerhalb eines Werktags.'
         : 'Thanks — we\'ll get back to you within one business day.';
       const err = de
-        ? 'Etwas ist schiefgelaufen. Schreiben Sie uns an hello@guimah.studio.'
-        : 'Something went wrong. Email us at hello@guimah.studio.';
+        ? 'Etwas ist schiefgelaufen. Schreiben Sie uns an guimahstudio@gmail.com.'
+        : 'Something went wrong. Email us at guimahstudio@gmail.com.';
 
       if (label) label.textContent = sending;
       if (btn) btn.disabled = true;
