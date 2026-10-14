@@ -211,9 +211,9 @@ import { initChat } from './chatbot.js';
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* ---------- Contact form (Formspree) ----------
+  /* ---------- Contact form (FormSubmit) ----------
      Note: client-side validation is UX, not security. A determined attacker
-     bypasses the browser entirely and POSTs to Formspree directly — Formspree
+     bypasses the browser entirely and POSTs to FormSubmit directly — FormSubmit
      handles honeypot + spam filtering server-side. Our job here is:
        1. Reject obvious garbage before it hits the network (empty, bad email).
        2. Strip control chars (zero-width, RTL overrides) that let a paste hide
@@ -286,7 +286,7 @@ import { initChat } from './chatbot.js';
 
     // Blur-time validation feels less naggy than input-time.
     form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
-      if (el.name === '_gotcha') return;
+      if (el.name === '_honey') return;
       el.addEventListener('blur', () => showError(el.name, validateField(el)));
       el.addEventListener('input', () => {
         if (!el.nextElementSibling?.hidden) showError(el.name, validateField(el));
@@ -327,7 +327,7 @@ import { initChat } from './chatbot.js';
       // the visitor's language rather than as the browser's default popup.
       let firstBad = null;
       form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
-        if (el.name === '_gotcha') return;
+        if (el.name === '_honey') return;
         const err = validateField(el);
         showError(el.name, err);
         if (err && !firstBad) firstBad = el;
@@ -355,7 +355,10 @@ import { initChat } from './chatbot.js';
           headers: { Accept: 'application/json' },
         });
 
-        if (!res.ok) throw new Error(`Formspree ${res.status}`);
+        // FormSubmit answers 200 with success "false" on failures (e.g. an
+        // unactivated inbox), so the status code alone isn't enough.
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || String(data.success) !== 'true') throw new Error(`FormSubmit ${res.status}`);
 
         form.reset();
         if (status) status.textContent = ok;

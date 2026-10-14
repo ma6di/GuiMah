@@ -10,8 +10,8 @@
 <meta property="og:title" content="GuiMah Studio — Product engineering duo — remote, based in Berlin">
 <meta property="og:description" content="Two engineers, one team. Remote by default, based in Berlin. Web apps, mobile products, and AI workflows — built together, end to end.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://guimah.studio/">
-<meta property="og:image" content="https://guimah.studio/assets/img/og.png">
+<meta property="og:url" content="https://guimah.com/">
+<meta property="og:image" content="https://guimah.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="GuiMah Studio — remote product engineering, based in Berlin">
@@ -21,10 +21,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GuiMah Studio — Product engineering duo — remote, based in Berlin">
 <meta name="twitter:description" content="Two engineers, one team. Remote by default, based in Berlin. Web apps, mobile products, and AI workflows.">
-<meta name="twitter:image" content="https://guimah.studio/assets/img/og.png">
+<meta name="twitter:image" content="https://guimah.com/assets/img/og.png">
 <meta name="twitter:image:alt" content="GuiMah Studio — remote product engineering, based in Berlin">
 
-<link rel="canonical" href="https://guimah.studio/">
+<link rel="canonical" href="https://guimah.com/">
 <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/logo-mark.svg">
 <script>document.documentElement.classList.add('js');</script>
@@ -367,11 +367,11 @@
       <div data-reveal style="--delay: 120ms;">
         <!--
           maxlength + pattern are the browser's first line of defence — they can't
-          stop a determined bot (which just POSTs directly to Formspree), but they
+          stop a determined bot (which just POSTs directly to FormSubmit), but they
           keep honest users from oversized paste and typos, and give us a spec
-          the JS validator can share. Formspree does spam/abuse filtering server-side.
+          the JS validator can share. FormSubmit does spam/abuse filtering server-side.
         -->
-        <form data-form action="https://formspree.io/f/xojgdzzn" method="POST" novalidate>
+        <form data-form action="https://formsubmit.co/ajax/guimahstudio@gmail.com" method="POST" novalidate>
           <div class="field">
             <label for="name" data-i18n="con.name">Your name</label>
             <input
@@ -405,8 +405,12 @@
             </p>
           </div>
 
-          <!-- Formspree honeypot — leave empty; bots that fill it get ignored server-side. -->
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden;">
+          <!-- FormSubmit options: email subject + table layout in the inbox. -->
+          <input type="hidden" name="_subject" value="New enquiry from guimah.com">
+          <input type="hidden" name="_template" value="table">
+
+          <!-- FormSubmit honeypot — leave empty; bots that fill it get ignored server-side. -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden;">
 
           <button type="submit" class="btn" data-magnetic>
             <span class="btn-label" data-i18n="con.send">Send enquiry</span>

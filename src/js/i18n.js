@@ -127,7 +127,7 @@ const de = {
   'imp.lede': 'Angaben gemäß § 5 DDG.',
   'imp.1.h': 'Anbieter',
   'imp.1.p':
-    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br>Andreasstraße 20<br>10243 Berlin<br>Deutschland',
+    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br>Kleine Andreasstraße 20<br>10243 Berlin<br>Deutschland',
   'imp.2.h': 'Kontakt',
   'imp.2.p':
     'E-Mail: <a href="mailto:guimahstudio@gmail.com">guimahstudio@gmail.com</a><br>Telefon: <a href="tel:+4915565534350">+49 15565 534350</a>',
@@ -150,13 +150,13 @@ const de = {
     'Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website (Art. 13 DSGVO).',
   'priv.1.h': '1. Verantwortlicher',
   'priv.1.p':
-    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br>Andreasstraße 20<br>10243 Berlin, Deutschland<br>E-Mail: <a href="mailto:guimahstudio@gmail.com">guimahstudio@gmail.com</a><br>Telefon: <a href="tel:+4915565534350">+49 15565 534350</a>',
+    'GuiMah Studio<br>Guilherme Mazzolini &amp; Mahdi Cheraghali<br>Kleine Andreasstraße 20<br>10243 Berlin, Deutschland<br>E-Mail: <a href="mailto:guimahstudio@gmail.com">guimahstudio@gmail.com</a><br>Telefon: <a href="tel:+4915565534350">+49 15565 534350</a>',
   'priv.2.h': '2. Hosting',
   'priv.2.p':
     'Diese Website wird bei <a href="https://vercel.com/legal/privacy-notice" target="_blank" rel="noopener">Vercel Inc.</a>, 440 N Barranca Ave #4133, Covina, CA 91723, USA, gehostet. Beim Aufruf der Seite verarbeitet Vercel Server-Logdaten (z. B. IP-Adresse, Datum und Uhrzeit der Anfrage, Browsertyp), die technisch zur Auslieferung der Website erforderlich sind. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer sicheren und funktionsfähigen Website). Vercel verarbeitet diese Daten in den USA. Die Übermittlung stützt sich auf die Standardvertragsklauseln der EU-Kommission, wie in <a href="https://vercel.com/legal/dpa" target="_blank" rel="noopener">Vercels Auftragsverarbeitungsvertrag</a> beschrieben.',
   'priv.3.h': '3. Kontaktformular',
   'priv.3.p':
-    'Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Nachricht), um Ihre Anfrage zu bearbeiten. Das Formular wird über <a href="https://formspree.io/" target="_blank" rel="noopener">Formspree</a> (Formspree, Inc.) übermittelt, das als Auftragsverarbeiter die Nachricht an uns zustellt. Formspree hat seinen Sitz in den USA und verarbeitet die Anfrage dort. Die Übermittlung stützt sich auf die Standardvertragsklauseln der EU-Kommission (<a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Datenschutzerklärung von Formspree</a>). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) und/oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Anfragedaten speichern wir nur so lange, wie es zur Bearbeitung erforderlich ist, sofern keine längere gesetzliche Aufbewahrungspflicht besteht.',
+    'Wenn Sie uns über das Kontaktformular eine Anfrage senden, verarbeiten wir die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Nachricht), um Ihre Anfrage zu bearbeiten. Das Formular wird über <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a> übermittelt, das als Auftragsverarbeiter die Nachricht an uns zustellt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) und/oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Anfragedaten speichern wir nur so lange, wie es zur Bearbeitung erforderlich ist, sofern keine längere gesetzliche Aufbewahrungspflicht besteht.',
   'priv.4.h': '4. Schriftarten',
   'priv.4.p':
     'Die auf dieser Website verwendeten Schriftarten (Instrument Serif, Inter, JetBrains Mono) werden zusammen mit der Website ausgeliefert. Beim Laden der Seite stellt Ihr Browser keine Verbindung zu Google oder einem anderen Drittanbieter für Schriftarten her.',

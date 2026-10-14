@@ -35,7 +35,7 @@ from a subpath like `user.github.io/repo` rather than only at a domain root.
 For a VPS deploy on your own domain, everything you need is here:
 
 ```bash
-cp .env.example .env             # set SITE_ADDRESS=guimah.studio
+cp .env.example .env             # set SITE_ADDRESS=guimah.com
 docker compose up -d --build
 ```
 
@@ -46,7 +46,7 @@ docker compose up -d --build
   persists the account key + certs across restarts — **don't skip it**, or you'll hit
   the ACME rate limit on redeploys (5 duplicate certs per week).
 - **Security headers** — HSTS (1 year + preload), CSP scoped to same-origin +
-  Formspree, X-Frame-Options, Referrer-Policy, Permissions-Policy, X-Content-Type-Options.
+  FormSubmit, X-Frame-Options, Referrer-Policy, Permissions-Policy, X-Content-Type-Options.
   Fonts are self-hosted (no Google Fonts). All configured in `Caddyfile`.
 - **Caching** — `/assets/*` (Vite's hashed bundles) cached one year immutable;
   HTML always revalidates so new deploys reach visitors immediately.
@@ -107,7 +107,7 @@ as a data URI in each page's `<head>`, so there's no separate .ico to keep in sy
 ### Form input guards
 
 The contact form's client-side validation is **UX, not security** — a determined
-attacker skips the form entirely and POSTs to Formspree. What we do handle here:
+attacker skips the form entirely and POSTs to FormSubmit. What we do handle here:
 
 - `maxlength` + `pattern` on inputs — the browser blocks over-typing and rejects
   malformed emails without JS.
@@ -118,7 +118,7 @@ attacker skips the form entirely and POSTs to Formspree. What we do handle here:
   visible name.
 - Submit-time re-validation catches JS-set values that bypass `maxlength`.
 
-The heavy lifting lives at Formspree's end — spam filtering, honeypot, reCAPTCHA —
+The heavy lifting lives at FormSubmit's end — spam filtering, honeypot —
 and the `_gotcha` honeypot field is still in the HTML for their bot detector.
 
 ### German UI
@@ -201,10 +201,9 @@ keep the `frame short` classes and leave the `<figcaption>` in place.
 
 ## Notes
 
-- **Contact form** posts to Formspree (`https://formspree.io/f/xojgdzzn`) via `fetch`.
+- **Contact form** posts to FormSubmit (`https://formsubmit.co/ajax/guimahstudio@gmail.com`) via `fetch`.
   The endpoint lives on the `<form action>` in `index.html`; success/error copy is handled
-  in `src/js/main.js`. Confirm your domain in the Formspree dashboard before going live.
-- Update `guimahstudio@gmail.com` in `index.html` (and Formspree notification settings) if
-  you register a different domain.
+  in `src/js/main.js`. The first submission triggers a one-time activation email to guimahstudio@gmail.com.
+- The contact email is `guimahstudio@gmail.com` (form action in `index.html`, plus page copy).
 - Animations are gated behind a `.js` class on `<html>` and respect
   `prefers-reduced-motion`. Without JS the page renders as a plain readable document.

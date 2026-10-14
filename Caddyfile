@@ -6,7 +6,7 @@
 # Caddy trusts its own internal CA and no ACME calls happen.
 #
 # When you deploy, set SITE_ADDRESS in the environment to your real domain
-# (e.g. `SITE_ADDRESS=guimah.studio`). Nothing else needs to change.
+# (e.g. `SITE_ADDRESS=guimah.com`). Nothing else needs to change.
 # =============================================================================
 
 {
@@ -31,9 +31,9 @@
 		Referrer-Policy "strict-origin-when-cross-origin"
 		# We don't use any browser features that need explicit permission.
 		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
-		# CSP: same-origin assets + Formspree POST target.
+		# CSP: same-origin assets + FormSubmit POST target.
 		# Fonts are self-hosted — no Google Fonts domains needed.
-		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self' https://formsubmit.co; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
 		# The nginx-style server signature isn't useful and gives free recon.
 		-Server
 	}

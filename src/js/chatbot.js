@@ -616,8 +616,8 @@ const INTENTS = [
            'mensch sprechen', 'melden'],
     chip: { en: 'How do I contact you?', de: 'Wie erreiche ich euch?' },
     reply: {
-      en: 'Email hello@guimah.studio, phone (+49) 174 4005625, or use the form below — a rough idea is enough to start, and we come back to you within a couple of days.',
-      de: 'E-Mail hello@guimah.studio, Telefon (+49) 174 4005625, oder nutzen Sie das Formular unten — eine grobe Idee genügt für den Anfang, und wir melden uns innerhalb von ein paar Tagen.',
+      en: 'Email guimahstudio@gmail.com, phone (+49) 174 4005625, or use the form below — a rough idea is enough to start, and we come back to you within a couple of days.',
+      de: 'E-Mail guimahstudio@gmail.com, Telefon (+49) 174 4005625, oder nutzen Sie das Formular unten — eine grobe Idee genügt für den Anfang, und wir melden uns innerhalb von ein paar Tagen.',
     },
     action: ACTION_ENQUIRY,
     next: ['location', 'process'],
@@ -662,8 +662,8 @@ const INTENTS = [
            'schon geschickt', 'schon geschrieben', 'habe geschrieben', 'keine antwort', 'noch keine antwort',
            'warte noch'],
     reply: {
-      en: 'Thanks for getting in touch already — enquiries are answered within one business day, so a reply should be with you shortly. If it\'s been longer than that, email hello@guimah.studio directly and we\'ll chase it.',
-      de: 'Danke, dass Sie sich schon gemeldet haben — Anfragen beantworten wir innerhalb eines Werktags, eine Antwort sollte also bald da sein. Falls es länger dauert, schreiben Sie direkt an hello@guimah.studio, dann gehen wir dem nach.',
+      en: 'Thanks for getting in touch already — enquiries are answered within one business day, so a reply should be with you shortly. If it\'s been longer than that, email guimahstudio@gmail.com directly and we\'ll chase it.',
+      de: 'Danke, dass Sie sich schon gemeldet haben — Anfragen beantworten wir innerhalb eines Werktags, eine Antwort sollte also bald da sein. Falls es länger dauert, schreiben Sie direkt an guimahstudio@gmail.com, dann gehen wir dem nach.',
     },
     next: ['contact', 'responsetime'],
   },
