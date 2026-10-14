@@ -520,7 +520,7 @@ a.work-media:focus-visible { outline: 2px solid var(--accent); outline-offset: 3
 
 /* Flewi multi-phone strip is authored at 16:10 so the home shot tile shows
    every screen without cover-cropping to the middle. */
-.work-media--flewi { background: #f8f9fc; }
+.work-media--flewi { background: #faf7ee; }
 .work-media--flewi img { object-position: center; }
 
 /* Placeholder tile for code projects with no screenshot */

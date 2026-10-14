@@ -261,12 +261,13 @@ import { initChat } from './chatbot.js';
       else     { el.textContent = ''; el.hidden = true; }
     };
 
-    const validateField = (input) => {
-      const name = input.name;
+    // `commit` writes the scrubbed value back. Only on blur/submit — doing it
+    // while typing trims the trailing space and makes the space bar look dead.
+    const validateField = (input, commit = false) => {
       const msg = t();
       // scrub before measuring so pure-whitespace / zero-width payloads count as empty
-      input.value = scrub(input.value);
-      const v = input.value;
+      const v = scrub(input.value);
+      if (commit) input.value = v;
 
       if (!v) return input.required ? msg.required : null;
       if (input.maxLength > 0 && v.length > input.maxLength) return msg.long;
@@ -287,9 +288,10 @@ import { initChat } from './chatbot.js';
     // Blur-time validation feels less naggy than input-time.
     form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
       if (el.name === '_honey') return;
-      el.addEventListener('blur', () => showError(el.name, validateField(el)));
+      const errEl = form.querySelector(`[data-error="${el.name}"]`);
+      el.addEventListener('blur', () => showError(el.name, validateField(el, true)));
       el.addEventListener('input', () => {
-        if (!el.nextElementSibling?.hidden) showError(el.name, validateField(el));
+        if (errEl && !errEl.hidden) showError(el.name, validateField(el));
       });
     });
 
@@ -328,7 +330,7 @@ import { initChat } from './chatbot.js';
       let firstBad = null;
       form.querySelectorAll('input[name], textarea[name]').forEach((el) => {
         if (el.name === '_honey') return;
-        const err = validateField(el);
+        const err = validateField(el, true);
         showError(el.name, err);
         if (err && !firstBad) firstBad = el;
       });
